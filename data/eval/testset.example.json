@@ -1,0 +1,12 @@
+[
+  {
+    "question": "What is Retrieval-Augmented Generation?",
+    "answer": "A technique where relevant passages are retrieved from a document collection and given to an LLM as context so it answers based on real sources instead of only its internal memory.",
+    "keywords": ["retriev", "context", "LLM", "source"]
+  },
+  {
+    "question": "Why do large language models hallucinate?",
+    "answer": "Because their knowledge is fixed at training time and they cannot access private or up-to-date documents, so they may produce confident but incorrect answers.",
+    "keywords": ["training", "confident", "incorrect"]
+  }
+]

@@ -1,0 +1,55 @@
+question,mode,answer,verdict,score,keyword_score,latency_s,num_sources,config
+How many days of paid annual leave does a full-time employee get?,rag,Every employee is entitled to 28 days of paid annual leave per year [1][2]. This increases to 30 days after five years of continuous service [1][2].,PARTIAL,0.5,1.0,5.52,4,500/50
+How does annual leave change with length of service?,rag,Annual leave increases to 30 days after five years of continuous service [1][2].,CORRECT,1.0,1.0,1.48,4,500/50
+Who founded Northwind Analytics and in what year?,rag,Northwind Analytics was founded in 2014 by Priya Menon and Thomas Reyes [1][2].,CORRECT,1.0,1.0,0.97,4,500/50
+How many people did Northwind employ as of January 2025?,rag,"As of January 2025, Northwind employed 428 people [1][2].",CORRECT,1.0,1.0,0.86,4,500/50
+Where is Northwind headquartered and where are its other offices?,rag,"Northwind is headquartered in Manchester, United Kingdom, with satellite offices in Berlin and Bangalore [2][3].",CORRECT,1.0,1.0,1.27,4,500/50
+How many hours per week do full-time employees work?,rag,Full-time employees work 37.5 hours per week [1][2].,CORRECT,1.0,1.0,0.82,4,500/50
+How many days per week are employees expected to be in the office?,rag,Employees are expected to be in the office at least two days per week [2][3].,PARTIAL,0.5,0.3333333333333333,0.91,4,500/50
+What is the home-office allowance for remote-approved staff?,rag,The home-office allowance for remote-approved staff is a one-time payment of 500 pounds [1][2].,CORRECT,1.0,1.0,1.23,4,500/50
+What is the daily meal allowance for international travel?,rag,The standard daily meal allowance for international travel is 55 pounds [1][2].,CORRECT,1.0,1.0,0.79,4,500/50
+What are the password requirements?,rag,Passwords must be at least 14 characters long and are rotated every 90 days [1][2].,CORRECT,1.0,1.0,0.82,4,500/50
+How much is the annual training budget and does it carry over?,rag,"Each employee has an annual training budget of 1,200 pounds. Unused training budget does not carry over to the next year [1][2].",CORRECT,1.0,1.0,1.48,4,500/50
+How often do performance reviews take place and in which months?,rag,"Formal performance reviews take place twice a year, in June and December [1][2].",CORRECT,1.0,1.0,0.86,4,500/50
+What makes an employee eligible for promotion consideration?,rag,An employee becomes eligible for promotion consideration if they receive an overall rating of 4 or higher in two consecutive performance reviews [1][2].,CORRECT,1.0,1.0,1.49,4,500/50
+What bonus is given for passing an approved professional certification?,rag,Employees who pass an approved professional certification receive a one-time bonus of 300 pounds [1][2].,CORRECT,1.0,1.0,1.03,4,500/50
+What is the company's parental leave policy?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.74,4,500/50
+What is the average salary of a consultant at Northwind?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.33,4,500/50
+How much does the company contribute to employee pensions?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.49,4,500/50
+Who is the current CEO of Northwind Analytics?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.42,4,500/50
+How many days of paid annual leave does a full-time employee get?,rag,Every employee is entitled to 28 days of paid annual leave per year [1][4].,PARTIAL,0.5,1.0,4.28,4,1000/150
+How does annual leave change with length of service?,rag,Annual leave increases from 28 days to 30 days per year after five years of continuous service [1].,CORRECT,1.0,1.0,1.33,4,1000/150
+Who founded Northwind Analytics and in what year?,rag,Northwind Analytics was founded in 2014 by Priya Menon and Thomas Reyes [1].,CORRECT,1.0,1.0,0.73,4,1000/150
+How many people did Northwind employ as of January 2025?,rag,"As of January 2025, Northwind employed 428 people across its three offices [1].",CORRECT,1.0,1.0,0.85,4,1000/150
+Where is Northwind headquartered and where are its other offices?,rag,"Northwind is headquartered in Manchester, United Kingdom, and has satellite offices in Berlin and Bangalore [1].",CORRECT,1.0,1.0,1.22,4,1000/150
+How many hours per week do full-time employees work?,rag,Full-time employees work 37.5 hours per week [1][2].,CORRECT,1.0,1.0,0.98,4,1000/150
+How many days per week are employees expected to be in the office?,rag,Employees are expected to be in the office at least two days per week [1].,PARTIAL,0.5,0.3333333333333333,0.96,4,1000/150
+What is the home-office allowance for remote-approved staff?,rag,The company provides a one-time home-office allowance of 500 pounds for remote-approved staff [1].,CORRECT,1.0,1.0,0.63,4,1000/150
+What is the daily meal allowance for international travel?,rag,The daily meal allowance for international travel is 55 pounds [1].,CORRECT,1.0,1.0,1.13,4,1000/150
+What are the password requirements?,rag,Passwords must be at least 14 characters long and are rotated every 90 days [1].,CORRECT,1.0,1.0,0.93,4,1000/150
+How much is the annual training budget and does it carry over?,rag,"Each employee has an annual training budget of 1,200 pounds. Unused training budget does not carry over to the next year [1].",CORRECT,1.0,1.0,1.43,4,1000/150
+How often do performance reviews take place and in which months?,rag,"Formal performance reviews take place twice a year, in June and December [1].",CORRECT,1.0,1.0,1.0,4,1000/150
+What makes an employee eligible for promotion consideration?,rag,An employee becomes eligible for promotion consideration if they receive an overall rating of 4 or higher in two consecutive performance reviews [1].,CORRECT,1.0,1.0,1.13,4,1000/150
+What bonus is given for passing an approved professional certification?,rag,Employees who pass an approved professional certification receive a one-time bonus of 300 pounds [1].,CORRECT,1.0,1.0,1.36,4,1000/150
+What is the company's parental leave policy?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.4,4,1000/150
+What is the average salary of a consultant at Northwind?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.68,4,1000/150
+How much does the company contribute to employee pensions?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,0.92,4,1000/150
+Who is the current CEO of Northwind Analytics?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.94,4,1000/150
+How many days of paid annual leave does a full-time employee get?,rag,"Every employee is entitled to 28 days of paid annual leave per year, in addition to public holidays. This increases to 30 days after five years of continuous service [1][2][3].",CORRECT,1.0,1.0,1.44,4,1500/200
+How does annual leave change with length of service?,rag,Annual leave increases to 30 days after five years of continuous service [1][2][3].,CORRECT,1.0,1.0,0.95,4,1500/200
+Who founded Northwind Analytics and in what year?,rag,Northwind Analytics was founded in 2014 by Priya Menon and Thomas Reyes [1][2][3][4].,CORRECT,1.0,1.0,1.33,4,1500/200
+How many people did Northwind employ as of January 2025?,rag,"As of January 2025, Northwind employed 428 people across its three offices [1][2][3][4].",CORRECT,1.0,1.0,1.22,4,1500/200
+Where is Northwind headquartered and where are its other offices?,rag,"Northwind is headquartered in Manchester, United Kingdom, with satellite offices in Berlin and Bangalore [3][4].",CORRECT,1.0,1.0,1.29,4,1500/200
+How many hours per week do full-time employees work?,rag,Full-time employees work 37.5 hours per week [1][2][3].,CORRECT,1.0,1.0,1.08,4,1500/200
+How many days per week are employees expected to be in the office?,rag,"Employees are expected to be in the office at least two days per week, typically Tuesday and Thursday [2][3][4].",CORRECT,1.0,1.0,1.03,4,1500/200
+What is the home-office allowance for remote-approved staff?,rag,The home-office allowance for remote-approved staff is a one-time payment of 500 pounds [1][2][3][4].,CORRECT,1.0,1.0,1.43,4,1500/200
+What is the daily meal allowance for international travel?,rag,The standard daily meal allowance for international travel is 55 pounds [1][2][3][4].,CORRECT,1.0,1.0,1.33,4,1500/200
+What are the password requirements?,rag,Passwords must be at least 14 characters long and are rotated every 90 days [1][2][3][4].,CORRECT,1.0,1.0,1.43,4,1500/200
+How much is the annual training budget and does it carry over?,rag,"Each employee has an annual training budget of 1,200 pounds. Unused training budget does not carry over to the next year [1][2][3][4].",CORRECT,1.0,1.0,1.74,4,1500/200
+How often do performance reviews take place and in which months?,rag,"Formal performance reviews take place twice a year, in June and December [1][2][3][4].",CORRECT,1.0,1.0,0.71,4,1500/200
+What makes an employee eligible for promotion consideration?,rag,An employee becomes eligible for promotion consideration if they receive an overall rating of 4 or higher in two consecutive reviews [1][2][3][4].,CORRECT,1.0,1.0,1.15,4,1500/200
+What bonus is given for passing an approved professional certification?,rag,Employees who pass an approved professional certification receive a one-time bonus of 300 pounds [1][2][3][4].,CORRECT,1.0,1.0,1.43,4,1500/200
+What is the company's parental leave policy?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.62,4,1500/200
+What is the average salary of a consultant at Northwind?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.92,4,1500/200
+How much does the company contribute to employee pensions?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.94,4,1500/200
+Who is the current CEO of Northwind Analytics?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,2.55,4,1500/200

@@ -1,0 +1,502 @@
+question,mode,answer,verdict,score,keyword_score,latency_s,num_sources,config
+How many days of paid annual leave does a full-time employee get?,rag,Every employee is entitled to 28 days of paid annual leave per year [1][4].,PARTIAL,0.5,1.0,4.28,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How does annual leave change with length of service?,rag,Annual leave increases from 28 days to 30 days per year after five years of continuous service [1].,CORRECT,1.0,1.0,1.33,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+Who founded Northwind Analytics and in what year?,rag,Northwind Analytics was founded in 2014 by Priya Menon and Thomas Reyes [1].,CORRECT,1.0,1.0,0.73,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How many people did Northwind employ as of January 2025?,rag,"As of January 2025, Northwind employed 428 people across its three offices [1].",CORRECT,1.0,1.0,0.85,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+Where is Northwind headquartered and where are its other offices?,rag,"Northwind is headquartered in Manchester, United Kingdom, and has satellite offices in Berlin and Bangalore [1].",CORRECT,1.0,1.0,1.22,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How many hours per week do full-time employees work?,rag,Full-time employees work 37.5 hours per week [1][2].,CORRECT,1.0,1.0,0.98,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How many days per week are employees expected to be in the office?,rag,Employees are expected to be in the office at least two days per week [1].,PARTIAL,0.5,0.3333333333333333,0.96,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the home-office allowance for remote-approved staff?,rag,The company provides a one-time home-office allowance of 500 pounds for remote-approved staff [1].,CORRECT,1.0,1.0,0.63,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the daily meal allowance for international travel?,rag,The daily meal allowance for international travel is 55 pounds [1].,CORRECT,1.0,1.0,1.13,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What are the password requirements?,rag,Passwords must be at least 14 characters long and are rotated every 90 days [1].,CORRECT,1.0,1.0,0.93,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How much is the annual training budget and does it carry over?,rag,"Each employee has an annual training budget of 1,200 pounds. Unused training budget does not carry over to the next year [1].",CORRECT,1.0,1.0,1.43,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How often do performance reviews take place and in which months?,rag,"Formal performance reviews take place twice a year, in June and December [1].",CORRECT,1.0,1.0,1.0,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What makes an employee eligible for promotion consideration?,rag,An employee becomes eligible for promotion consideration if they receive an overall rating of 4 or higher in two consecutive performance reviews [1].,CORRECT,1.0,1.0,1.13,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What bonus is given for passing an approved professional certification?,rag,Employees who pass an approved professional certification receive a one-time bonus of 300 pounds [1].,CORRECT,1.0,1.0,1.36,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the company's parental leave policy?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.4,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the average salary of a consultant at Northwind?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.68,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How much does the company contribute to employee pensions?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,0.92,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+Who is the current CEO of Northwind Analytics?,rag,I could not find this in the provided documents.,CORRECT,1.0,1.0,1.94,4,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How many days of paid annual leave does a full-time employee get?,plain,"The number of days of paid annual leave a full-time employee gets varies significantly depending on several factors, primarily:
+
+1.  **Country/Region:** This is the biggest factor. Many countries have statutory minimums for paid annual leave, while others (like the United States) do not have a federal mandate.
+    *   **United States:** There is no federal law requiring employers to provide paid annual leave. It's entirely up to the employer's policy or state/local laws (which are rare for *mandating* leave, but often regulate how it's handled if offered). Most full-time employees in the US *do* receive paid leave, typically starting around **10-15 days (2-3 weeks)** per year, often increasing with tenure.
+    *   **European Union (EU):** The EU Working Time Directive mandates a minimum of **4 weeks (20 working days)** of paid annual leave per year for all workers. Many EU countries offer more than this minimum.
+    *   **United Kingdom:** Full-time workers are entitled to a minimum of **5.6 weeks (28 days)** of paid annual leave per year, which can include bank holidays.
+    *   **Canada:** Most provinces mandate a minimum of **2 weeks (10 days)** of paid annual leave after one year of employment, often increasing to 3 weeks after several years.
+    *   **Australia:** Full-time employees are generally entitled to **4 weeks (20 days)** of paid annual leave per year.
+
+2.  **Company Policy:** Many companies offer more generous leave policies than the legal minimums to attract and retain talent.
+
+3.  **Years of Service:** It's very common for the amount of paid annual leave to increase with an employee's tenure at a company. For example, an employee might start with 2 weeks and eventually accrue 3 or 4 weeks after several years.
+
+4.  **Employment Contract/Collective Bargaining Agreement (Union):** Your specific employment contract or a union agreement will outline your exact leave entitlements.
+
+**To find out how many days *you* get, you should:**
+
+*   **Check your employment contract.**
+*   **Consult your company's HR department or employee handbook.**
+*   **Refer to the labor laws in your specific country, state, or province.**",PARTIAL,0.5,1.0,8.07,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How does annual leave change with length of service?,plain,"Yes, annual leave (also known as vacation time or paid time off - PTO) **very commonly increases with an employee's length of service** at a company. This is a widespread practice designed to reward loyalty, encourage retention, and acknowledge an employee's growing contribution over time.
+
+Here's how it typically works:
+
+1.  **Starting Point (Entry Level):**
+    *   Most companies offer a baseline amount of annual leave to new employees. This can vary significantly by country, industry, and company.
+    *   **Examples:**
+        *   In the **US**, it might be 10-15 days (2-3 weeks) per year.
+        *   In the **UK**, the legal minimum is 5.6 weeks (28 days for a 5-day week, including bank holidays), but many companies offer more, often starting at 20-25 days plus bank holidays.
+        *   In **Europe**, 4-5 weeks (20-25 days) is common, often mandated by law.
+
+2.  **Tiered Increases:**
+    *   The most common method is a tiered system where employees earn additional leave days after reaching specific milestones of service.
+    *   **Common Milestones:**
+        *   **After 1-3 years:** Often the first increase, perhaps an additional 3-5 days.
+        *   **After 5 years:** Another increase, potentially bringing the total to 20-25 days in the US, or 30+ days in Europe.
+        *   **After 10+ years:** Some companies offer further increases, though there's often a maximum cap.
+    *   **Example Progression (US-centric):**
+        *   **Years 0-2:** 10 days annual leave
+        *   **Years 3-5:** 15 days annual leave
+        *   **Years 6-10:** 20 days annual leave
+        *   **Years 10+:** 25 days annual leave (often a maximum)
+
+3.  **Increased Accrual Rate:**
+    *   Instead of fixed jumps, some companies use an accrual system where the *rate* at which you earn leave hours or days increases with service.
+    *   **Example:**
+        *   **Years 0-2:** Accrue 3.33 hours of PTO per 40-hour work week.
+        *   **Years 3-5:** Accrue 4.00 hours of PTO per 40-hour work week.
+        *   **Years 6+:** Accrue 5.00 hours of PTO per 40-hour work week.
+
+4.  **Why Companies Do This:**
+    *   **Employee Retention:** It's a powerful incentive for employees to stay with the company long-term.
+    *   **Reward for Loyalty:** Acknowledges and rewards the commitment and experience an employee gains over time.
+    *   **Competitive Advantage:** Offering better leave benefits can attract and retain top talent.
+    *   **Work-Life Balance:** Recognizes that long-serving employees may need more time for rest, family, or personal pursuits.
+
+5.  **Variations:**
+    *   **Industry:** Some industries (e.g., tech, professional services) might offer more generous leave from the start or faster increases.
+    *   **Company Size:** Larger, more established companies often have more structured and generous leave policies.
+    *   **Location:** As mentioned, legal requirements and cultural norms vary significantly by country.
+    *   **Union Contracts:** Collective bargaining agreements often specify leave increases based on seniority.
+
+**Beyond Annual Leave:**
+
+It's also worth noting that other benefits can sometimes increase with length of service, such as:
+*   **Sabbaticals:** Extended periods of paid or unpaid leave offered after many years of service (e.g., 5-10+ years).
+*   **Retirement Contributions:** Employer matching contributions to retirement plans might vest or increase with service.
+*   **Severance Packages:** Often calculated based on years of service.
+
+**To find out your specific situation, you should always consult:**
+*   Your company's **employee handbook** or policy documents.
+*   Your **HR department**.
+*   Your **employment contract**.",CORRECT,1.0,0.6666666666666666,13.31,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+Who founded Northwind Analytics and in what year?,plain,"Northwind Analytics is not a real-world company with a known founder or founding year.
+
+It is a **fictional entity** often used in educational materials, tutorials, and sample datasets (especially those related to Microsoft technologies, like the famous Northwind Traders database) to demonstrate data analysis, business intelligence, or database concepts.",WRONG,0.0,0.0,3.28,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How many people did Northwind employ as of January 2025?,plain,"Northwind is a **fictional company** used as a sample database. Its data is static and does not change over time or update for future dates.
+
+As represented in the standard Northwind database, there are typically **9 employees**.
+
+So, as of January 2025 (or any other date), the Northwind database would still show **9 employees**.",CORRECT,1.0,0.0,3.1,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+Where is Northwind headquartered and where are its other offices?,plain,"Northwind Traders is a **fictional company** created by Microsoft as a sample database for demonstrating database concepts, SQL queries, and application development.
+
+Therefore:
+
+*   Its **headquarters** are generally understood to be in **Seattle, Washington, USA**, as this is often the location associated with its operations and the origin of many of its employees in the sample data.
+*   It **does not have any other real-world offices** because it is not a real company. The sample database focuses on its customers, suppliers, products, and employees, but doesn't define a corporate structure with multiple physical branch offices.",WRONG,0.0,0.0,3.27,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How many hours per week do full-time employees work?,plain,"The most common and widely accepted standard for full-time employment in many countries, particularly the United States, is **40 hours per week**.
+
+This typically breaks down into five 8-hour days, Monday through Friday.
+
+However, it's important to understand that this can vary:
+
+1.  **Employer Definition:** While 40 hours is the norm, many employers define full-time as anywhere from **35 to 40 hours per week** for benefits eligibility (e.g., health insurance, paid time off).
+2.  **Legal Definitions (U.S.):**
+    *   The **Fair Labor Standards Act (FLSA)** doesn't explicitly define ""full-time"" for all purposes, but it mandates overtime pay for non-exempt employees working over 40 hours in a workweek. This reinforces the 40-hour standard as the threshold for additional pay.
+    *   The **Affordable Care Act (ACA)** defines full-time employees as those working **30 or more hours per week** (or 130 hours per month) for the purpose of employer-provided health insurance mandates.
+3.  **Actual Hours Worked:** Many full-time employees, especially in certain professions (e.g., management, tech, healthcare, law), often work **more than 40 hours** per week, sometimes significantly more, without additional overtime pay if they are classified as exempt employees.
+4.  **Other Countries:** Workweek standards can differ internationally. For example, some European countries have shorter standard workweeks.
+
+In summary, while **40 hours per week** is the most common standard, the definition can range from 30 to 40 hours depending on the context (benefits, legal requirements, or employer policy).",WRONG,0.0,0.0,8.89,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How many days per week are employees expected to be in the office?,plain,"That depends entirely on the **company** you're asking about!
+
+There's a wide range of policies in place right now:
+
+1.  **Fully Remote:** Some companies are still 100% remote, with no expectation to be in the office.
+2.  **Fully In-Office:** Other companies have returned to a traditional 5 days a week in the office.
+3.  **Hybrid Models (Most Common):** This is the most prevalent approach, and it varies significantly:
+    *   **2-3 Days Per Week:** Many companies require employees to be in the office 2 or 3 specific days (e.g., Tuesday-Thursday) or allow them to choose which 2-3 days they come in.
+    *   **Team-Dependent:** Some companies leave it up to individual teams or departments to decide their in-office schedule.
+    *   **Role-Dependent:** Certain roles might require more in-office presence than others.
+    *   **Occasional On-Site:** Some companies are primarily remote but ask employees to come in for specific meetings, team events, or quarterly gatherings.
+
+**To find out for a specific company, you should:**
+
+*   **Check their internal HR policies or intranet.**
+*   **Ask your manager or HR department.**
+*   **Refer to your job offer letter or employment contract.**
+*   **Look at their careers page or recent company announcements.**",WRONG,0.0,0.6666666666666666,5.42,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the home-office allowance for remote-approved staff?,plain,"There isn't a single, universal ""home-office allowance"" for remote-approved staff, as it varies significantly based on several factors:
+
+1.  **Your Employer's Policy:**
+    *   **Many companies offer a stipend or reimbursement:** This can be a one-time payment for setting up a home office (e.g., for a desk, chair, monitor) or a recurring monthly/annual allowance to cover internet, utilities, or general home office expenses.
+    *   **Some companies provide equipment directly:** They might ship you a laptop, monitors, keyboard, mouse, and even a headset.
+    *   **Some companies offer no specific allowance:** They might expect you to cover these costs yourself, especially if remote work is optional or if your role doesn't require specialized equipment.
+    *   **It can be tied to your role:** Certain roles might receive more support due to specific equipment needs.
+
+2.  **Your Country/Region's Tax Laws:**
+    *   **Tax Deductions/Credits:** Many countries offer tax deductions or credits for home office expenses, but the rules are often strict and vary widely.
+        *   **United States:** For employees, home office deductions were largely suspended by the Tax Cuts and Jobs Act of 2017 for tax years 2018-2025. Self-employed individuals can still deduct qualified home office expenses.
+        *   **Canada:** Employees working from home due to COVID-19 or by employer requirement can claim home office expenses using a simplified flat-rate method or a detailed method.
+        *   **United Kingdom:** Employees can claim tax relief for certain job-related expenses, including a flat rate for working from home or a more detailed claim for specific costs if they meet certain criteria (e.g., required to work from home).
+        *   **Other Countries:** Each country has its own specific rules regarding what can be deducted, under what conditions, and how to calculate it.
+
+**To find out your specific home-office allowance, you should:**
+
+1.  **Check with your HR Department or Manager:** This is the most direct way to understand your company's specific policy regarding home office stipends, equipment provision, or reimbursement.
+2.  **Consult your Employee Handbook or Company Intranet:** Many companies detail their remote work policies and allowances in these resources.
+3.  **Review your Offer Letter or Employment Contract:** Sometimes, specific allowances are mentioned there.
+4.  **For Tax Purposes:**
+    *   **Consult your country's tax authority website:** (e.g., IRS in the US, CRA in Canada, HMRC in the UK).
+    *   **Speak with a tax professional:** They can provide personalized advice based on your specific situation and local tax laws.
+
+In summary, there's no single answer. You'll need to check with your employer and, if applicable, your country's tax regulations.",PARTIAL,0.5,0.0,7.83,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the daily meal allowance for international travel?,plain,"There isn't a single, universal ""daily meal allowance"" for international travel. The amount varies significantly based on several factors:
+
+1.  **Who is paying/setting the allowance?**
+    *   **Your Employer/Company:** Most companies have their own travel policies that dictate daily meal allowances (often called ""per diem"" for meals and incidentals, or M&IE). This is the most common scenario for business travelers.
+    *   **Government Agencies (e.g., U.S. Government):**
+        *   **U.S. Department of State Foreign Per Diem Rates:** These are set for U.S. government employees and contractors traveling abroad. They provide specific rates for lodging, meals, and incidentals for virtually every country and major city in the world. These rates are often used as a benchmark by other organizations. You can find them on the State Department website.
+        *   **GSA (General Services Administration):** While primarily for domestic travel, GSA also has some international rates, though the State Department rates are more comprehensive for foreign areas.
+    *   **Non-Profit Organizations/NGOs:** Often have their own internal policies, which might be based on government rates or their own cost-of-living research.
+    *   **Individuals (for tax purposes):** If you are self-employed or deducting business travel expenses, tax authorities (like the IRS in the U.S. or HMRC in the UK) have guidelines for what constitutes a ""reasonable"" meal expense, or they may allow you to use simplified per diem rates.
+
+2.  **The Destination Country and City:** The cost of living varies dramatically. A meal allowance for Tokyo or London will be much higher than for a city in Southeast Asia or Eastern Europe.
+
+3.  **What's Included in the Allowance:**
+    *   **Meals Only:** Sometimes the allowance is strictly for food.
+    *   **Meals & Incidentals (M&IE):** This is very common. ""Incidentals"" can include things like tips for services, laundry, dry cleaning, local telephone calls, and transportation between places of business (but usually not between lodging and business).
+
+4.  **Purpose of Travel:** Diplomatic, military, or specific project travel might have different rates than general business travel.
+
+**How to Find the Relevant Allowance:**
+
+*   **If you are traveling for work:** Consult your company's HR department or travel policy. This is your primary source.
+*   **If you are a U.S. government employee or contractor:** Refer to the U.S. Department of State Foreign Per Diem Rates website.
+*   **If you are self-employed or need it for tax purposes:**
+    *   Consult a tax professional.
+    *   Refer to your country's tax authority guidelines (e.g., IRS Publication 463 for the U.S. for travel, gift, and car expenses). They often allow you to use the government per diem rates or deduct actual reasonable expenses.
+*   **For general planning:** You can look up the U.S. State Department rates for your destination as a good benchmark for what might be considered a reasonable daily cost for meals and incidentals.
+
+**Example:**
+As of my last update, a U.S. State Department M&IE rate for a city like **London, UK** might be around **$100-$120 USD per day**, while a city like **Bangkok, Thailand** might be closer to **$50-$70 USD per day**. These numbers are illustrative and change frequently.
+
+**In summary, there is no single answer. You must refer to the specific policy or guidelines that apply to your situation and destination.**",WRONG,0.0,0.0,11.5,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What are the password requirements?,plain,"The exact password requirements depend entirely on the system, website, or service you are trying to access or create an account for. However, I can give you a comprehensive overview of **general best practices** and **common requirements** you'll encounter.
+
+---
+
+### General Best Practices for Strong Passwords (What you *should* aim for)
+
+These are the ideal characteristics for a secure password:
+
+1.  **Length:** The longer, the better. Aim for **at least 12-16 characters**, but 20+ is even better. Length is the most crucial factor for security.
+2.  **Complexity/Character Types:** Include a mix of:
+    *   **Uppercase letters** (A-Z)
+    *   **Lowercase letters** (a-z)
+    *   **Numbers** (0-9)
+    *   **Special characters** (!@#$%^&*()_+-=[]{}|;':"",./<>?`~)
+3.  **Uniqueness:** **Never reuse passwords** across different accounts. If one account is compromised, all others using the same password become vulnerable.
+4.  **Unpredictability:**
+    *   **Avoid personal information:** Don't use your name, birthday, pet's name, address, or anything easily guessable from your public profiles.
+    *   **Avoid common words or phrases:** Dictionary attacks can easily crack these.
+    *   **Avoid sequential patterns:** ""123456,"" ""qwerty,"" ""asdfgh"" are extremely weak.
+    *   **Avoid simple substitutions:** ""P@ssw0rd!"" is still easily cracked.
+5.  **Randomness:** A truly strong password should appear random and be difficult for a human to guess or for a computer to brute-force.
+
+---
+
+### Common Requirements You'll Encounter (What systems typically enforce)
+
+Most systems will enforce a subset of these:
+
+*   **Minimum Length:** Often 8 characters, but increasingly 10 or 12.
+*   **At least one uppercase letter.**
+*   **At least one lowercase letter.**
+*   **At least one number.**
+*   **At least one special character.** (Sometimes specific special characters are disallowed or only a limited set is permitted).
+*   **Cannot contain your username or email address.**
+*   **Cannot be one of your last X passwords** (e.g., cannot be the same as your last 5 passwords).
+*   **Maximum Length:** Some older or poorly designed systems might have a maximum length (e.g., 20 or 30 characters), which can be frustrating for users trying to create very long passphrases.
+
+---
+
+### Things to Avoid
+
+*   Your name, spouse's name, children's names, pet's names.
+*   Birthdays, anniversaries, or other significant dates.
+*   Common words like ""password,"" ""admin,"" ""user.""
+*   Keyboard patterns like ""qwerty,"" ""asdfgh,"" ""123456.""
+*   Simple dictionary words or phrases.
+*   Reusing passwords across multiple sites.
+
+---
+
+### How to Create and Manage Strong Passwords
+
+1.  **Passphrases:** Instead of a single word, use a phrase that's long, memorable, and includes varied characters. Example: `MyD0gL0vesT0chaseSquirrels!23` (12-16 characters is good, this is 29).
+2.  **Password Managers:** This is the **best way** to manage strong, unique passwords. Tools like LastPass, 1Password, Bitwarden, or KeePass can generate complex passwords for you and store them securely, so you only need to remember one master password.
+3.  **Multi-Factor Authentication (MFA/2FA):** Whenever available, enable MFA. This adds an extra layer of security (e.g., a code from your phone) even if your password is stolen.
+
+---
+
+**In summary:** Aim for **long, unique, and complex passwords** for every account, and use a **password manager** and **MFA** to make it manageable and even more secure.",PARTIAL,0.5,0.0,13.31,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How much is the annual training budget and does it carry over?,plain,"As an AI, I don't have access to specific financial information for any particular company or organization.
+
+To find out the annual training budget and whether it carries over, you would need to inquire with:
+
+*   **Your HR Department:** This is usually the primary source for employee benefits and training policies.
+*   **Your Manager or Supervisor:** They might have information specific to your team or department.
+*   **Your Company's Finance Department:** For broader organizational budget details.
+*   **Company Policy Documents:** Check your employee handbook, intranet, or internal policy portal.
+
+**General Information (What to expect):**
+
+*   **Budget Amount:** This varies *greatly* by company, industry, role, and seniority. Some companies offer a fixed amount per employee, others have departmental budgets, and some approve training on a case-by-case basis.
+*   **Carry-over:** It's very common for training budgets **not** to carry over from one fiscal year to the next (often referred to as ""use it or lose it""). This encourages employees to utilize their training opportunities within the current year. However, some companies might allow a small percentage to roll over, or allow carry-over with special approval.
+
+I hope this helps you find the information you're looking for!",WRONG,0.0,0.0,5.81,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How often do performance reviews take place and in which months?,plain,"Performance review cycles vary significantly from company to company, depending on their size, industry, culture, and specific HR policies. However, here's a breakdown of the most common frequencies and timing:
+
+### How Often Do Performance Reviews Take Place?
+
+1.  **Annually (Most Common):** This is the traditional and still most prevalent model. Employees receive one formal review per year.
+2.  **Bi-Annually (Twice a Year):** Some companies opt for two formal reviews, often a comprehensive one and a lighter ""mid-year check-in.""
+3.  **Quarterly (Every Three Months):** More common in fast-paced industries (like tech) or for companies that emphasize continuous improvement and agile methodologies. These might be less formal than annual reviews.
+4.  **Continuous/Ongoing Feedback:** A growing trend where formal reviews are de-emphasized or replaced by regular, informal check-ins, one-on-one meetings, and real-time feedback throughout the year. Formal reviews might still exist, but they become more of a summary of ongoing discussions.
+5.  **Project-Based:** For roles heavily involved in projects, reviews might occur at the completion of major projects, in addition to or instead of a fixed annual cycle.
+6.  **Anniversary of Hire:** Less common for company-wide reviews, but some organizations conduct reviews based on an individual employee's start date.
+
+### In Which Months Do Performance Reviews Typically Occur?
+
+For companies that conduct **annual reviews**, the timing is often tied to the company's fiscal year, budgeting cycles, and goal-setting processes.
+
+1.  **End of the Calendar Year (November/December) or Beginning of the New Year (January/February):**
+    *   **Why:** This is the most common period. It aligns with year-end financial closing, bonus calculations, and setting goals for the upcoming year. Reviews conducted in November/December often cover performance for the current calendar year, with decisions (promotions, raises) being finalized in December or January. Reviews in January/February often reflect on the previous year's performance and set the stage for the new year.
+
+2.  **Mid-Year (June/July):**
+    *   **Why:** If a company has a fiscal year that doesn't align with the calendar year (e.g., July 1st to June 30th), their annual reviews might happen around June or July. This is also a common time for ""mid-year check-ins"" even if the main annual review is at year-end, providing an opportunity to adjust goals and address performance issues proactively.
+
+3.  **Other Times (Varies):**
+    *   Some companies might align reviews with their specific fiscal year, which could end in March, September, or any other month.
+    *   For ""anniversary of hire"" reviews, the month will be different for each employee.
+
+**In summary:**
+
+*   **Most common frequency:** Annually.
+*   **Most common months for annual reviews:** November, December, January, or February.
+
+To find out the exact schedule for a specific company, it's best to consult their HR department, employee handbook, or ask your manager.",PARTIAL,0.5,1.0,9.93,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What makes an employee eligible for promotion consideration?,plain,"Eligibility for promotion consideration is typically a combination of objective criteria and subjective assessments. While specific requirements can vary greatly between companies and even departments, here are the most common factors:
+
+1.  **Consistent High Performance in Current Role:**
+    *   **Exceeding Expectations:** Not just meeting, but consistently going above and beyond the requirements of their current job description.
+    *   **Quality of Work:** Producing high-quality, accurate, and reliable work.
+    *   **Productivity & Efficiency:** Consistently meeting or exceeding productivity targets and demonstrating efficient work habits.
+    *   **Reliability & Dependability:** Being a trusted team member who can be counted on to complete tasks and meet deadlines.
+
+2.  **Demonstrated Skills & Knowledge for the Next Level:**
+    *   **Mastery of Current Skills:** Possessing a deep understanding and proficiency in all aspects of their current role.
+    *   **Acquisition of New Skills:** Proactively learning and applying skills relevant to the desired higher-level position (e.g., leadership, strategic thinking, advanced technical skills, project management).
+    *   **Industry & Company Knowledge:** A strong grasp of the industry, market trends, and the company's mission, values, and strategic goals.
+
+3.  **Experience & Tenure:**
+    *   **Time in Current Role:** Many companies have a minimum tenure requirement in a role before an employee is eligible for promotion consideration (e.g., 1-2 years).
+    *   **Breadth of Experience:** Having worked on diverse projects, with different teams, or across various functions, demonstrating adaptability and a wider perspective.
+    *   **Depth of Experience:** Handling increasingly complex tasks, solving difficult problems, and taking on more significant responsibilities.
+
+4.  **Leadership Potential & Initiative:**
+    *   **Proactiveness:** Taking initiative, identifying problems, and proposing solutions without being asked.
+    *   **Mentorship & Coaching:** Guiding and supporting junior colleagues, even without a formal leadership title.
+    *   **Taking Ownership:** Taking responsibility for projects, outcomes, and even mistakes.
+    *   **Strategic Thinking:** Demonstrating an ability to see the bigger picture, anticipate challenges, and contribute to long-term planning.
+    *   **Problem-Solving:** Effectively identifying, analyzing, and resolving complex issues.
+
+5.  **Soft Skills & Professionalism:**
+    *   **Effective Communication:** Clear, concise, and persuasive communication, both written and verbal, with colleagues, clients, and management.
+    *   **Collaboration & Teamwork:** Working effectively with others, fostering a positive team environment, and contributing to collective success.
+    *   **Adaptability & Resilience:** Ability to adjust to change, learn new processes, and bounce back from setbacks.
+    *   **Positive Attitude:** Maintaining a constructive and enthusiastic approach to work.
+    *   **Professionalism:** Adhering to company policies, demonstrating integrity, and maintaining a respectful demeanor.
+
+6.  **Alignment with Company Values & Culture:**
+    *   **Cultural Fit:** Embodying the company's core values and contributing positively to the workplace culture.
+    *   **Advocacy:** Being a positive ambassador for the company.
+
+7.  **Expressed Interest & Development:**
+    *   **Communicating Ambition:** Clearly expressing interest in career growth and promotion to their manager.
+    *   **Personal Development Plan:** Actively working on a development plan, seeking feedback, and participating in training or learning opportunities to bridge skill gaps.
+
+8.  **Manager's Recommendation & Advocacy:**
+    *   A strong endorsement from their direct manager is often crucial. Managers are typically the first point of contact for promotion discussions and can advocate for their team members.
+
+9.  **Formal Requirements (if any):**
+    *   Some roles may require specific certifications, degrees, or licenses.
+    *   A clean disciplinary record.
+
+**In essence, an employee becomes eligible for promotion consideration when they consistently perform at a high level in their current role, demonstrate the skills and behaviors required for the *next* level, and actively express their desire and readiness for advancement.**",PARTIAL,0.5,0.5,10.42,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What bonus is given for passing an approved professional certification?,plain,"The ""bonus"" for passing an approved professional certification is highly variable and depends on several factors, including:
+
+1.  **Your Employer's Policy:** This is the most common source of a bonus. Many companies have formal or informal policies to incentivize employees to gain relevant certifications.
+2.  **The Industry:** Some industries (e.g., IT, finance, healthcare) place a higher value on specific certifications and are more likely to offer incentives.
+3.  **The Specific Certification:** A highly specialized or difficult certification that directly benefits your role or the company might warrant a larger bonus than a more general one.
+4.  **Your Role and Performance:** Your current position, performance, and how the certification aligns with company goals can influence the bonus.
+5.  **Negotiation:** Sometimes, it's something you might need to discuss with your manager or HR.
+
+Here are the common types of ""bonuses"" you might receive:
+
+**1. Direct Financial Incentives:**
+
+*   **One-time Cash Bonus:** A lump sum payment given upon successful completion of the certification. This is often the most desired and straightforward bonus.
+*   **Salary Increase:** A permanent bump in your base salary, often tied to a promotion or increased responsibilities that come with the certification.
+*   **Reimbursement of Costs:** While not strictly a ""bonus,"" many companies will pay for the exam fees, training courses, and study materials, which saves you a significant amount of money. Sometimes this reimbursement is contingent on passing.
+*   **Stipend or Allowance:** A recurring payment for maintaining the certification or for taking on new duties related to it.
+
+**2. Career Advancement & Opportunities:**
+
+*   **Promotion:** The certification might qualify you for a higher-level position or a new role within the company.
+*   **Increased Responsibilities:** You might be given more complex projects, lead teams, or take on tasks that require your new expertise.
+*   **Enhanced Job Security:** Demonstrating a commitment to professional development can make you a more valuable asset to the company.
+*   **Opportunity for New Projects:** You might get first dibs on exciting or challenging projects that require your certified skills.
+
+**3. Recognition & Perks:**
+
+*   **Public Recognition:** Being acknowledged in company newsletters, team meetings, or internal awards programs.
+*   **Professional Development Opportunities:** Access to more advanced training, conferences, or mentorship programs.
+*   **Company-Paid Memberships:** Membership to relevant professional organizations.
+
+**4. Indirect & Long-Term Benefits:**
+
+*   **Increased Marketability:** Even if your current employer doesn't offer a direct bonus, the certification makes you more attractive to other potential employers and can lead to higher earning potential in the long run.
+*   **Enhanced Credibility:** You gain respect from peers, clients, and management.
+*   **Personal Satisfaction:** The achievement itself can be a significant motivator.
+
+**How to Find Out What Bonus is Offered:**
+
+*   **Check Company Policy:** Look for internal HR documents, employee handbooks, or company intranet pages related to professional development or training.
+*   **Ask Your Manager:** Your direct supervisor should be aware of any incentives for certifications relevant to your role.
+*   **Consult HR:** Human Resources can provide definitive information on company policies.
+*   **Network:** Talk to colleagues who have obtained similar certifications to see what they received.
+
+**In summary, there's no universal bonus amount or type.** It's crucial to understand your specific company's policies and the value they place on the certification you're pursuing.",WRONG,0.0,0.0,12.67,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the company's parental leave policy?,plain,"I cannot tell you your specific company's parental leave policy because I don't know which company you work for.
+
+However, I can give you a comprehensive overview of what a typical parental leave policy includes and where you can find your company's specific details.
+
+---
+
+### What a Parental Leave Policy Typically Covers:
+
+A good parental leave policy aims to support employees welcoming a new child into their family, whether through birth, adoption, or foster care. Here are the common elements:
+
+1.  **Eligibility:**
+    *   **Who is covered?** Birth parents (mothers and fathers), adoptive parents, foster parents, and sometimes same-sex partners of birth parents.
+    *   **Tenure requirements:** Often, employees must have worked for the company for a certain period (e.g., 12 months) and/or a minimum number of hours (e.g., 1,250 hours in the past year) to be eligible for certain benefits, especially those tied to federal or state laws like FMLA.
+
+2.  **Leave Duration:**
+    *   **Paid Leave:** How many weeks of *paid* leave are offered by the company? This can vary significantly (e.g., 2 weeks, 6 weeks, 12 weeks, or more).
+        *   Often differentiated between ""primary caregiver"" (typically the birth mother or lead adoptive parent) and ""secondary caregiver"" (the other parent).
+    *   **Unpaid Leave:** How much *unpaid*, job-protected leave is available?
+        *   **FMLA (Family and Medical Leave Act):** For eligible employees in the U.S., this provides up to 12 weeks of *unpaid*, job-protected leave for the birth, adoption, or foster care placement of a child.
+        *   **State Laws:** Many states have their own paid family leave (PFL) or expanded FMLA laws that offer additional or paid leave.
+    *   **Intermittent Leave:** Can the leave be taken all at once, or can it be spread out over a period (e.g., part-time for a few months)?
+    *   **Timeframe:** How long after the child's arrival can the leave be taken (e.g., within the first 12 months)?
+
+3.  **Compensation During Leave:**
+    *   **Company-Paid Leave:** The percentage of salary paid during the leave (e.g., 100%, 75%, 50%).
+    *   **Short-Term Disability (STD):** For birth mothers, a portion of the leave (typically 6-8 weeks for recovery) is often covered by short-term disability benefits, which may pay a percentage of salary.
+    *   **State Paid Family Leave (PFL):** If applicable in your state, this provides partial wage replacement.
+    *   **Use of PTO/Sick Leave:** Can employees use their accrued vacation, sick time, or personal days to supplement unpaid leave or top up partial pay?
+
+4.  **Benefits During Leave:**
+    *   **Health Insurance:** Will the company continue to pay its share of health insurance premiums during the leave?
+    *   **Other Benefits:** Continuation of 401(k) contributions, life insurance, etc.
+
+5.  **Job Protection & Return to Work:**
+    *   **Guaranteed Return:** Assurance that the employee will return to the same or an equivalent position.
+    *   **Flexible Return Options:** Policies might include options for a gradual return to work, temporary part-time, or remote work arrangements.
+    *   **Lactation Support:** Information about available lactation rooms and policies for pumping breaks.
+
+6.  **Notice Requirements:**
+    *   How much advance notice is required before taking leave (e.g., 30 days)?
+    *   What documentation is needed (e.g., birth certificate, adoption papers)?
+
+7.  **Interaction with Other Policies:**
+    *   How does parental leave interact with FMLA, state leave laws, short-term disability, and other company leave policies?
+
+---
+
+### How to Find Your Company's Specific Parental Leave Policy:
+
+To get the exact details for *your* company, you should check one or more of the following resources:
+
+1.  **Employee Handbook:** Most companies include detailed benefits information in their official employee handbook.
+2.  **HR Department/Manager:** Your Human Resources department or your direct HR representative is the best source for current and accurate policy information.
+3.  **Company Intranet/Benefits Portal:** Many companies have an internal website or a dedicated benefits portal where you can access policy documents, FAQs, and forms.
+4.  **Benefits Enrollment Materials:** When you enrolled in benefits, you likely received documents outlining various leave policies.
+
+Don't hesitate to reach out to your HR department directly – they are there to help you understand your benefits!",PARTIAL,0.5,0.0,14.75,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+What is the average salary of a consultant at Northwind?,plain,"Northwind Traders is a **fictional company** often used as a sample database for learning and demonstrations (e.g., with SQL Server, Access, etc.).
+
+Therefore, there isn't a real-world average salary for a consultant at Northwind.
+
+Furthermore, the standard Northwind database schema typically **does not include a 'Salary' column** for employees, nor does it usually have a 'Consultant' job title in its `Employees` table.
+
+If you are working with a *modified* version of the Northwind database that includes salary information and a 'Consultant' role, you would query it like this:
+
+```sql
+SELECT AVG(Salary)
+FROM Employees
+WHERE Title = 'Consultant';
+```
+
+But based on the standard Northwind database, this information isn't available.",CORRECT,1.0,0.0,4.89,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+How much does the company contribute to employee pensions?,plain,"I cannot tell you the exact amount a specific company contributes to employee pensions without knowing which company you're referring to. This information is highly specific to each individual company and their particular retirement plan.
+
+However, I can tell you the common ways companies contribute and how you can find this information:
+
+**Common Ways Companies Contribute to Retirement Plans:**
+
+1.  **Matching Contributions (Most Common for Defined Contribution Plans like 401(k)s/403(b)s):**
+    *   The company matches a percentage of the employee's contribution up to a certain limit.
+    *   **Example:** ""The company matches 50% of your contributions up to 6% of your salary."" (If you contribute 6% of your salary, the company contributes 3%).
+    *   **Example:** ""The company matches 100% of your contributions up to 3% of your salary."" (If you contribute 3% of your salary, the company contributes 3%).
+
+2.  **Non-Elective Contributions (Defined Contribution Plans):**
+    *   The company contributes a set percentage of your salary to your retirement account, regardless of whether you contribute yourself.
+    *   **Example:** ""The company contributes 3% of your gross salary to your 401(k) each pay period.""
+
+3.  **Profit-Sharing Contributions (Defined Contribution Plans):**
+    *   The company makes discretionary contributions based on its profitability. These can vary year to year.
+    *   **Example:** ""At the end of the year, the company may contribute a percentage of profits to employee retirement accounts.""
+
+4.  **Defined Benefit Plans (Traditional Pensions - Less Common for New Hires):**
+    *   In these plans, the company promises a specific monthly benefit at retirement, usually based on salary and years of service. The company is responsible for funding this promise, and their contributions are actuarially determined to meet future obligations. Employees typically don't contribute directly to the *funding* of the pension, though they might contribute to a separate retirement savings plan.
+
+**How to Find This Information for a Specific Company:**
+
+*   **Current Employees:**
+    *   **HR Department:** This is the best source.
+    *   **Employee Handbook or Benefits Guide:** Often details all benefits.
+    *   **Benefits Portal/Website:** Many companies have an online portal where you can view your benefits.
+    *   **Summary Plan Description (SPD):** This is a legal document that outlines all the details of the retirement plan.
+
+*   **Prospective Employees:**
+    *   **During the Interview Process:** Once you're further along in the hiring process (e.g., after an offer), you can ask about the benefits package.
+    *   **Company Website (Careers Section):** Some companies provide general benefits information.
+    *   **Glassdoor, LinkedIn, or other review sites:** Employees sometimes share benefits information, but it might not always be up-to-date or precise.
+
+Please provide the company name if you'd like me to try and find publicly available information, though specific contribution percentages are rarely public unless it's a very large, publicly traded company and the information is aggregated in financial reports.",CORRECT,1.0,0.0,10.47,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash
+Who is the current CEO of Northwind Analytics?,plain,"Northwind Analytics is a **fictional company** often used in Microsoft tutorials and sample databases (like the Northwind Traders database).
+
+Therefore, it does not have a real-world CEO.",CORRECT,1.0,0.0,1.16,0,chunk=1000/150 top_k=4 model=gemini-2.5-flash

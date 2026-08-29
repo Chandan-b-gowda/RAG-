@@ -1,0 +1,128 @@
+[
+  {
+    "id": "leave-basic",
+    "question": "How many days of paid annual leave does a full-time employee get?",
+    "answer": "28 days of paid annual leave per year, in addition to public holidays.",
+    "keywords": ["28"],
+    "answerable": true
+  },
+  {
+    "id": "leave-tenure",
+    "question": "How does annual leave change with length of service?",
+    "answer": "It increases to 30 days after five years of continuous service.",
+    "keywords": ["30", "five", "service"],
+    "answerable": true
+  },
+  {
+    "id": "founders",
+    "question": "Who founded Northwind Analytics and in what year?",
+    "answer": "Priya Menon and Thomas Reyes founded the company in 2014.",
+    "keywords": ["Priya Menon", "Thomas Reyes", "2014"],
+    "answerable": true
+  },
+  {
+    "id": "headcount",
+    "question": "How many people did Northwind employ as of January 2025?",
+    "answer": "428 people across its three offices.",
+    "keywords": ["428"],
+    "answerable": true
+  },
+  {
+    "id": "offices",
+    "question": "Where is Northwind headquartered and where are its other offices?",
+    "answer": "Headquartered in Manchester, UK, with satellite offices in Berlin and Bangalore.",
+    "keywords": ["Manchester", "Berlin", "Bangalore"],
+    "answerable": true
+  },
+  {
+    "id": "hours",
+    "question": "How many hours per week do full-time employees work?",
+    "answer": "37.5 hours per week.",
+    "keywords": ["37.5"],
+    "answerable": true
+  },
+  {
+    "id": "remote-days",
+    "question": "How many days per week are employees expected to be in the office?",
+    "answer": "At least two days per week, typically Tuesday and Thursday.",
+    "keywords": ["two", "Tuesday", "Thursday"],
+    "answerable": true
+  },
+  {
+    "id": "home-office",
+    "question": "What is the home-office allowance for remote-approved staff?",
+    "answer": "A one-time home-office allowance of 500 pounds.",
+    "keywords": ["500"],
+    "answerable": true
+  },
+  {
+    "id": "meal-intl",
+    "question": "What is the daily meal allowance for international travel?",
+    "answer": "55 pounds per day for international travel.",
+    "keywords": ["55"],
+    "answerable": true
+  },
+  {
+    "id": "password",
+    "question": "What are the password requirements?",
+    "answer": "At least 14 characters long, rotated every 90 days.",
+    "keywords": ["14", "90"],
+    "answerable": true
+  },
+  {
+    "id": "training-budget",
+    "question": "How much is the annual training budget and does it carry over?",
+    "answer": "1,200 pounds per year, and unused budget does not carry over.",
+    "keywords": ["1,200", "not carry over"],
+    "answerable": true
+  },
+  {
+    "id": "reviews",
+    "question": "How often do performance reviews take place and in which months?",
+    "answer": "Twice a year, in June and December.",
+    "keywords": ["twice", "June", "December"],
+    "answerable": true
+  },
+  {
+    "id": "promotion",
+    "question": "What makes an employee eligible for promotion consideration?",
+    "answer": "Receiving an overall rating of 4 or higher in two consecutive reviews.",
+    "keywords": ["4", "two consecutive"],
+    "answerable": true
+  },
+  {
+    "id": "certification-bonus",
+    "question": "What bonus is given for passing an approved professional certification?",
+    "answer": "A one-time bonus of 300 pounds.",
+    "keywords": ["300"],
+    "answerable": true
+  },
+  {
+    "id": "unanswer-parental",
+    "question": "What is the company's parental leave policy?",
+    "answer": "The document does not contain information about parental leave.",
+    "keywords": ["could not find"],
+    "answerable": false
+  },
+  {
+    "id": "unanswer-salary",
+    "question": "What is the average salary of a consultant at Northwind?",
+    "answer": "The document does not contain salary figures.",
+    "keywords": ["could not find"],
+    "answerable": false
+  },
+  {
+    "id": "unanswer-pension",
+    "question": "How much does the company contribute to employee pensions?",
+    "answer": "The document does not contain pension contribution details.",
+    "keywords": ["could not find"],
+    "answerable": false
+  },
+  {
+    "id": "unanswer-ceo",
+    "question": "Who is the current CEO of Northwind Analytics?",
+    "answer": "The document does not state who the CEO is.",
+    "keywords": ["could not find"],
+    "answerable": false
+  }
+]

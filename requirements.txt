@@ -1,0 +1,33 @@
+# ---- Core RAG framework ----
+langchain==0.3.27
+langchain-community==0.3.27
+langchain-google-genai==2.0.10
+langchain-chroma==0.2.5
+langchain-huggingface==0.1.2
+
+# ---- Vector database ----
+chromadb>=1.0.9
+
+# ---- Embeddings (local, free, offline) ----
+sentence-transformers==3.3.1
+
+# ---- Document processing ----
+pypdf==5.1.0
+pdfplumber==0.11.4
+
+# ---- LLM SDK (Gemini) ----
+google-generativeai==0.8.3
+
+# ---- Web app ----
+streamlit==1.41.1
+
+# ---- Experiments / evaluation ----
+pandas==2.2.3
+matplotlib==3.10.0
+
+# ---- Utilities ----
+python-dotenv==1.0.1
+
+# ---- Optional: OpenAI baseline (uncomment if you run the OpenAI comparison) ----
+# langchain-openai==0.2.14
+# openai==1.59.5
