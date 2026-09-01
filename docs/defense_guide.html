@@ -1,0 +1,609 @@
+<title>RAG Project Defense Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    /* Light theme — cool scholarly paper, ink navy, indigo accent, highlighter amber */
+    --ground: #F5F7FB;
+    --surface: #FFFFFF;
+    --surface-2: #EEF1F8;
+    --ink: #1A2036;
+    --ink-soft: #4A5268;
+    --ink-faint: #737C93;
+    --border: #DDE2ED;
+    --accent: #4338CA;
+    --accent-soft: #EAE9FB;
+    --highlight: #F4C430;
+    --highlight-soft: #FBEFC6;
+    --good: #1F9D6B;
+    --good-soft: #DFF3EA;
+    --bad: #D64550;
+    --bad-soft: #FBE4E5;
+    --shadow: 0 1px 2px rgba(26,32,54,.04), 0 6px 20px rgba(26,32,54,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0F131E;
+      --surface: #171C2A;
+      --surface-2: #1F2536;
+      --ink: #E9ECF5;
+      --ink-soft: #B2BACD;
+      --ink-faint: #808AA3;
+      --border: #2A3145;
+      --accent: #9AA6FF;
+      --accent-soft: #232743;
+      --highlight: #F4C430;
+      --highlight-soft: #3A3320;
+      --good: #4CC996;
+      --good-soft: #163229;
+      --bad: #F0808A;
+      --bad-soft: #3A2023;
+      --shadow: 0 1px 2px rgba(0,0,0,.2), 0 8px 28px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0F131E;
+    --surface: #171C2A;
+    --surface-2: #1F2536;
+    --ink: #E9ECF5;
+    --ink-soft: #B2BAcd;
+    --ink-faint: #808AA3;
+    --border: #2A3145;
+    --accent: #9AA6FF;
+    --accent-soft: #232743;
+    --highlight: #F4C430;
+    --highlight-soft: #3A3320;
+    --good: #4CC996;
+    --good-soft: #163229;
+    --bad: #F0808A;
+    --bad-soft: #3a2023;
+    --shadow: 0 1px 2px rgba(0,0,0,.2), 0 8px 28px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .layout { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 940px) {
+    .layout { grid-template-columns: 232px minmax(0,1fr); gap: 56px; align-items: start; }
+  }
+
+  /* ---- Sidebar nav ---- */
+  nav.toc {
+    position: sticky; top: 0; align-self: start;
+    padding: 28px 0;
+    font-size: 14px;
+    display: none;
+  }
+  @media (min-width: 940px) { nav.toc { display: block; max-height: 100vh; overflow-y: auto; } }
+  nav.toc .brand { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; color: var(--ink); margin-bottom: 4px; }
+  nav.toc .brand small { display:block; font-family:"IBM Plex Sans"; font-weight:400; font-size:12px; color: var(--ink-faint); letter-spacing:.02em; }
+  nav.toc ol { list-style: none; margin: 18px 0 0; padding: 0; counter-reset: s; }
+  nav.toc li { counter-increment: s; margin: 2px 0; }
+  nav.toc a {
+    display: flex; gap: 10px; align-items: baseline;
+    color: var(--ink-soft); text-decoration: none;
+    padding: 5px 10px; border-radius: 7px; line-height: 1.3;
+  }
+  nav.toc a::before { content: counter(s,decimal-leading-zero); font-family:"IBM Plex Mono"; font-size:11px; color: var(--ink-faint); }
+  nav.toc a:hover { background: var(--surface-2); color: var(--ink); }
+
+  main { padding: 28px 0 96px; min-width: 0; }
+
+  /* ---- Hero ---- */
+  header.hero {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 40px 40px 36px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+    position: relative; overflow: hidden;
+  }
+  header.hero::before {
+    content:""; position:absolute; inset:0 0 auto 0; height:5px;
+    background: linear-gradient(90deg, var(--accent), var(--highlight));
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase; letter-spacing: .16em; font-size: 11.5px;
+    color: var(--accent); font-weight: 500; margin: 0 0 14px;
+  }
+  header.hero h1 {
+    font-family: "Fraunces", serif; font-weight: 600;
+    font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 0 0 16px;
+    text-wrap: balance; letter-spacing: -.01em;
+  }
+  header.hero p.lead { font-size: 19px; color: var(--ink-soft); margin: 0; max-width: 62ch; }
+  .hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
+  .chip {
+    font-family:"IBM Plex Mono"; font-size:12px; color: var(--ink-soft);
+    background: var(--surface-2); border:1px solid var(--border);
+    padding: 5px 11px; border-radius: 999px;
+  }
+
+  section { margin: 0 0 52px; scroll-margin-top: 24px; }
+  h2 {
+    font-family: "Fraunces", serif; font-weight: 600;
+    font-size: clamp(23px, 3.4vw, 30px); line-height: 1.15; margin: 0 0 6px;
+    text-wrap: balance; letter-spacing: -.01em;
+  }
+  h2 .num { font-family:"IBM Plex Mono"; font-size:14px; color: var(--accent); font-weight:500; margin-right:12px; vertical-align: middle; }
+  .section-sub { color: var(--ink-faint); font-size:15px; margin:0 0 22px; }
+  h3 { font-family:"IBM Plex Sans"; font-weight:600; font-size:18px; margin: 28px 0 8px; color: var(--ink); }
+  p { margin: 0 0 16px; max-width: 68ch; }
+  strong { font-weight: 600; color: var(--ink); }
+  a { color: var(--accent); }
+  code {
+    font-family:"IBM Plex Mono", monospace; font-size:.86em;
+    background: var(--surface-2); padding: 1.5px 6px; border-radius: 5px;
+    border: 1px solid var(--border);
+  }
+
+  /* ---- Key callout (highlighter) ---- */
+  .key {
+    display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
+    background: var(--highlight-soft);
+    border: 1px solid color-mix(in srgb, var(--highlight) 45%, var(--border));
+    border-left: 4px solid var(--highlight);
+    border-radius: 10px; padding: 16px 18px; margin: 20px 0; font-size: 16px;
+  }
+  .key .tag { font-family:"IBM Plex Mono"; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color: var(--ink-soft); font-weight:500; padding-top:2px; }
+  .key p { margin: 0; max-width: none; }
+  .key p + p { margin-top: 8px; }
+
+  /* ---- Analogy box ---- */
+  .analogy {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+    border-radius: 12px; padding: 20px 22px; margin: 20px 0;
+  }
+  .analogy .tag { font-family:"IBM Plex Mono"; font-size:11px; text-transform:uppercase; letter-spacing:.12em; color: var(--accent); font-weight:500; margin-bottom:8px; }
+  .analogy p:last-child { margin-bottom: 0; }
+
+  /* ---- Concept cards ---- */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 20px 0; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px; box-shadow: var(--shadow);
+  }
+  .card .term { font-family:"Fraunces", serif; font-weight:600; font-size:18px; margin-bottom:6px; }
+  .card .term .mono { font-family:"IBM Plex Mono"; font-size:12px; color: var(--accent); display:block; font-weight:400; margin-top:2px; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); margin: 0; max-width:none; }
+
+  /* ---- Steps ---- */
+  ol.steps { counter-reset: st; list-style: none; padding: 0; margin: 20px 0; display: grid; gap: 12px; }
+  ol.steps li {
+    counter-increment: st; position: relative;
+    background: var(--surface); border:1px solid var(--border); border-radius:11px;
+    padding: 16px 18px 16px 58px; box-shadow: var(--shadow);
+  }
+  ol.steps li::before {
+    content: counter(st); position:absolute; left:16px; top:16px;
+    width:28px; height:28px; border-radius:8px; display:grid; place-items:center;
+    background: var(--accent); color:#fff; font-family:"IBM Plex Mono"; font-weight:500; font-size:14px;
+  }
+  ol.steps li b { font-weight:600; }
+  ol.steps li p { margin: 4px 0 0; font-size: 15px; color: var(--ink-soft); max-width:none; }
+
+  /* ---- Table ---- */
+  .table-wrap { overflow-x: auto; margin: 20px 0; border:1px solid var(--border); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 460px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--surface-2); font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.04em; color: var(--ink-soft); }
+  tr:last-child td { border-bottom: none; }
+  td code { white-space: nowrap; }
+  .num-cell { font-variant-numeric: tabular-nums; }
+
+  /* ---- Compare (good/bad) ---- */
+  .compare { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 20px 0; }
+  @media (min-width: 620px) { .compare { grid-template-columns: 1fr 1fr; } }
+  .compare > div { border-radius: 12px; padding: 18px 20px; border:1px solid var(--border); }
+  .compare .bad { background: var(--bad-soft); border-color: color-mix(in srgb, var(--bad) 35%, var(--border)); }
+  .compare .good { background: var(--good-soft); border-color: color-mix(in srgb, var(--good) 35%, var(--border)); }
+  .compare h4 { margin:0 0 8px; font-size:15px; font-family:"IBM Plex Sans"; }
+  .compare .bad h4 { color: var(--bad); }
+  .compare .good h4 { color: var(--good); }
+  .compare p { margin:0; font-size:14.5px; color: var(--ink-soft); max-width:none; }
+
+  /* ---- Q&A ---- */
+  .qa { border:1px solid var(--border); border-radius:12px; margin:12px 0; background:var(--surface); overflow:hidden; box-shadow: var(--shadow); }
+  .qa summary {
+    cursor:pointer; padding:16px 20px; font-weight:600; font-size:16.5px; list-style:none;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .qa summary::-webkit-details-marker { display:none; }
+  .qa summary .q { color: var(--accent); font-family:"IBM Plex Mono"; font-size:14px; padding-top:2px; }
+  .qa summary::after { content:"+"; margin-left:auto; color:var(--ink-faint); font-size:20px; line-height:1; }
+  .qa[open] summary::after { content:"\2013"; }
+  .qa .a { padding: 0 20px 18px 46px; }
+  .qa .a p { font-size:15.5px; color: var(--ink-soft); margin:0 0 10px; }
+  .qa .a p:last-child { margin-bottom:0; }
+  .qa .a strong { color: var(--ink); }
+
+  /* ---- Diagram ---- */
+  .diagram-wrap { overflow-x:auto; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; margin:22px 0; box-shadow: var(--shadow); }
+  svg.flow { display:block; min-width: 640px; width:100%; height:auto; }
+  svg.flow .box { fill: var(--surface-2); stroke: var(--border); }
+  svg.flow .boxa { fill: var(--accent-soft); stroke: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+  svg.flow .boxg { fill: var(--good-soft); stroke: color-mix(in srgb, var(--good) 40%, var(--border)); }
+  svg.flow text { fill: var(--ink); font-family:"IBM Plex Sans", sans-serif; font-size:13px; }
+  svg.flow .lbl { fill: var(--ink-faint); font-family:"IBM Plex Mono"; font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+  svg.flow .arrow { stroke: var(--accent); stroke-width:2; fill:none; marker-end:url(#ah); }
+
+  /* ---- Cheat sheet ---- */
+  .cheat { background: var(--ink); color: var(--ground); border-radius:16px; padding: 28px 30px; margin: 20px 0; }
+  :root[data-theme="dark"] .cheat, :root:not([data-theme="light"]) .cheat { border:1px solid var(--border); }
+  .cheat h2 { color: #fff; }
+  .cheat .eyebrow { color: var(--highlight); }
+  .cheat ul { margin: 12px 0 0; padding-left: 0; list-style:none; display:grid; gap:10px; }
+  .cheat li { padding-left: 22px; position:relative; font-size:15.5px; color: color-mix(in srgb, var(--ground) 88%, transparent); max-width:74ch; }
+  .cheat li::before { content:"\2192"; position:absolute; left:0; color: var(--highlight); font-weight:700; }
+  .cheat li b { color:#fff; }
+
+  .toggle {
+    position: fixed; top: 16px; right: 16px; z-index: 20;
+    background: var(--surface); border:1px solid var(--border); color: var(--ink-soft);
+    border-radius: 999px; padding: 8px 14px; font-family:"IBM Plex Mono"; font-size:12px; cursor:pointer;
+    box-shadow: var(--shadow);
+  }
+  .toggle:hover { color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+  footer { border-top:1px solid var(--border); padding: 28px 0 60px; color: var(--ink-faint); font-size:13px; }
+</style>
+
+<button class="toggle" id="themeBtn" aria-label="Toggle light or dark theme">◐ theme</button>
+
+<div class="wrap">
+<div class="layout">
+
+  <nav class="toc" aria-label="Contents">
+    <div class="brand">Defense Guide<small>RAG document Q&A · viva prep</small></div>
+    <ol>
+      <li><a href="#big">The big picture</a></li>
+      <li><a href="#rag">What is RAG?</a></li>
+      <li><a href="#why">Why RAG is needed</a></li>
+      <li><a href="#how">How it works in your project</a></li>
+      <li><a href="#concepts">Key concepts, simply</a></li>
+      <li><a href="#stack">The tools & why</a></li>
+      <li><a href="#cloud">Google Cloud's role</a></li>
+      <li><a href="#research">What you tested & found</a></li>
+      <li><a href="#significance">Why this matters</a></li>
+      <li><a href="#questions">Likely viva questions</a></li>
+      <li><a href="#cheat">One-page cheat sheet</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <p class="eyebrow">M.Sc. Applied Computer Science · Project Defense</p>
+      <h1>Everything you need to explain your RAG project</h1>
+      <p class="lead">A plain-language guide to what you built, how it works, why each piece is there, and the questions your supervisor is most likely to ask — with answers you can say out loud.</p>
+      <div class="hero-meta">
+        <span class="chip">Retrieval-Augmented Generation</span>
+        <span class="chip">Google Cloud · Vertex AI</span>
+        <span class="chip">Python · LangChain · Chroma</span>
+        <span class="chip">Streamlit</span>
+      </div>
+    </header>
+
+    <!-- 1 -->
+    <section id="big">
+      <h2><span class="num">01</span>The big picture</h2>
+      <p class="section-sub">If you only remember one paragraph, remember this one.</p>
+      <p>You built a program that lets someone <strong>upload a document (a PDF) and ask questions about it in plain English</strong>, and it answers using only what's actually written in that document — and it <strong>shows you the exact passage</strong> it took the answer from. The technique that makes this possible is called <strong>RAG (Retrieval-Augmented Generation)</strong>. On top of building this working app, you also ran experiments to <strong>measure how much better RAG is than an ordinary chatbot</strong>, which is the research part of your project.</p>
+      <div class="key">
+        <span class="tag">Say this</span>
+        <p>"My project is a document question-answering system. You give it a PDF, ask a question, and it gives you an answer grounded in that document with a citation to the source. I used a method called Retrieval-Augmented Generation, and I also measured how much it improves accuracy compared to using the language model alone."</p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section id="rag">
+      <h2><span class="num">02</span>What is RAG?</h2>
+      <p class="section-sub">Retrieval-Augmented Generation — the core idea of the whole project.</p>
+      <p>RAG is made of two steps, and the name tells you both:</p>
+      <ul>
+        <li><strong>Retrieval</strong> = first, <em>find</em> the most relevant pieces of text from your document.</li>
+        <li><strong>Generation</strong> = then, a language model (Gemini) <em>writes</em> an answer using those pieces.</li>
+      </ul>
+      <p>So instead of the AI answering from memory, it first looks things up, then answers based on what it found.</p>
+      <div class="analogy">
+        <div class="tag">Analogy — the open-book exam</div>
+        <p>Imagine two students in an exam. <strong>Student A</strong> answers everything from memory — sometimes right, sometimes confidently wrong. <strong>Student B</strong> is allowed to open the textbook, find the right page, and answer from it — and can point to the exact line.</p>
+        <p>A plain chatbot is Student A. <strong>Your RAG system is Student B.</strong> Retrieval is "finding the right page"; generation is "writing the answer from it."</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="why">
+      <h2><span class="num">03</span>Why RAG is needed</h2>
+      <p class="section-sub">The problem it solves — this is the "why" behind your whole project.</p>
+      <p>Ordinary large language models (like a plain ChatGPT) have three real weaknesses. RAG fixes all three:</p>
+      <div class="compare">
+        <div class="bad">
+          <h4>Plain LLM — the problems</h4>
+          <p><strong>1. It hallucinates.</strong> It can make up facts that sound convincing but are wrong.<br><br><strong>2. It doesn't know your documents.</strong> It was trained on public internet text, not your company handbook or your PDF.<br><br><strong>3. You can't check it.</strong> It gives no source, so you can't verify the answer.</p>
+        </div>
+        <div class="good">
+          <h4>RAG — the fixes</h4>
+          <p><strong>1. Grounding.</strong> It answers only from retrieved text, so it invents far less.<br><br><strong>2. Your data.</strong> It searches <em>your</em> uploaded document, so it knows private/new information.<br><br><strong>3. Citations.</strong> It shows the exact passage, so answers are verifiable and trustworthy.</p>
+        </div>
+      </div>
+      <div class="key">
+        <span class="tag">Say this</span>
+        <p>"RAG matters because language models hallucinate and can't see private documents. By retrieving real passages first and forcing the model to answer from them, we reduce hallucination and can cite sources — which is essential for trustworthy answers."</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section id="how">
+      <h2><span class="num">04</span>How it works in your project</h2>
+      <p class="section-sub">The actual pipeline you built, step by step.</p>
+      <p>Your system has two phases. The first happens once, when a document is uploaded (<strong>ingestion</strong>). The second happens every time someone asks a question (<strong>query</strong>).</p>
+
+      <div class="diagram-wrap" role="img" aria-label="Diagram of the RAG pipeline: ingestion turns a PDF into text, chunks, embeddings, and a vector database; a query embeds the question, searches for top passages, builds a prompt, and Gemini produces a cited answer.">
+        <svg class="flow" viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0,0 L9,4.5 L0,9 Z" fill="var(--accent)"/>
+            </marker>
+          </defs>
+          <!-- Ingestion lane -->
+          <text class="lbl" x="8" y="24">Ingestion — happens once per document</text>
+          <rect class="box" x="8"   y="38" width="96" height="48" rx="9"/>
+          <text x="56" y="60" text-anchor="middle">PDF</text>
+          <text x="56" y="76" text-anchor="middle" class="lbl">file</text>
+          <rect class="box" x="140" y="38" width="104" height="48" rx="9"/>
+          <text x="192" y="60" text-anchor="middle">Text</text>
+          <text x="192" y="76" text-anchor="middle" class="lbl">extract</text>
+          <rect class="box" x="280" y="38" width="112" height="48" rx="9"/>
+          <text x="336" y="60" text-anchor="middle">Chunks</text>
+          <text x="336" y="76" text-anchor="middle" class="lbl">split</text>
+          <rect class="box" x="428" y="38" width="128" height="48" rx="9"/>
+          <text x="492" y="60" text-anchor="middle">Embeddings</text>
+          <text x="492" y="76" text-anchor="middle" class="lbl">meaning → vectors</text>
+          <rect class="boxa" x="592" y="38" width="160" height="48" rx="9"/>
+          <text x="672" y="60" text-anchor="middle">Vector database</text>
+          <text x="672" y="76" text-anchor="middle" class="lbl">Chroma</text>
+          <path class="arrow" d="M104 62 H140"/>
+          <path class="arrow" d="M244 62 H280"/>
+          <path class="arrow" d="M392 62 H428"/>
+          <path class="arrow" d="M556 62 H592"/>
+
+          <!-- connector -->
+          <path class="arrow" d="M672 86 V126" />
+          <text class="lbl" x="686" y="112">stored, ready to search</text>
+
+          <!-- Query lane -->
+          <text class="lbl" x="8" y="152">Query — happens for every question</text>
+          <rect class="box" x="8"   y="166" width="120" height="48" rx="9"/>
+          <text x="68" y="188" text-anchor="middle">Question</text>
+          <text x="68" y="204" text-anchor="middle" class="lbl">from user</text>
+          <rect class="box" x="164" y="166" width="104" height="48" rx="9"/>
+          <text x="216" y="188" text-anchor="middle">Embed</text>
+          <text x="216" y="204" text-anchor="middle" class="lbl">→ vector</text>
+          <rect class="boxa" x="304" y="166" width="150" height="48" rx="9"/>
+          <text x="379" y="184" text-anchor="middle">Search top matches</text>
+          <text x="379" y="204" text-anchor="middle" class="lbl">semantic search</text>
+          <rect class="box" x="490" y="166" width="120" height="48" rx="9"/>
+          <text x="550" y="188" text-anchor="middle">Prompt +</text>
+          <text x="550" y="205" text-anchor="middle">Gemini</text>
+          <rect class="boxg" x="646" y="166" width="106" height="48" rx="9"/>
+          <text x="699" y="184" text-anchor="middle">Cited</text>
+          <text x="699" y="201" text-anchor="middle">answer</text>
+          <path class="arrow" d="M128 190 H164"/>
+          <path class="arrow" d="M268 190 H304"/>
+          <path class="arrow" d="M454 190 H490"/>
+          <path class="arrow" d="M610 190 H646"/>
+          <!-- DB feeds search -->
+          <path class="arrow" d="M672 126 C672 150, 460 150, 400 166" />
+        </svg>
+      </div>
+
+      <h3>Phase 1 — Ingestion (preparing the document)</h3>
+      <ol class="steps">
+        <li><b>Read the PDF.</b><p>Extract the raw text from the file (using PyPDF).</p></li>
+        <li><b>Split into chunks.</b><p>Cut the text into small overlapping pieces (~1000 characters). Models can't read a whole book at once, and small focused pieces are easier to search.</p></li>
+        <li><b>Create embeddings.</b><p>Turn each chunk into a list of numbers (a "vector") that captures its <em>meaning</em>. Done locally and free with Sentence-Transformers.</p></li>
+        <li><b>Store in the vector database.</b><p>Save all those vectors in Chroma so they can be searched instantly.</p></li>
+      </ol>
+
+      <h3>Phase 2 — Query (answering a question)</h3>
+      <ol class="steps">
+        <li><b>Embed the question.</b><p>Turn the user's question into a vector the same way.</p></li>
+        <li><b>Semantic search.</b><p>Find the handful of chunks whose vectors are closest to the question's vector — i.e. the passages that <em>mean</em> the same thing. This is "top-k" retrieval (k = how many, e.g. 4).</p></li>
+        <li><b>Build a grounded prompt.</b><p>Put those passages plus the question into a carefully written instruction that says: "Answer using only this context, and cite it. If it's not here, say you don't know."</p></li>
+        <li><b>Generate the answer.</b><p>Send that to Gemini (via Google Cloud Vertex AI). It writes the answer and adds citations like [1], [2].</p></li>
+      </ol>
+      <div class="key">
+        <span class="tag">Key point</span>
+        <p>The language model is <strong>never trained or changed</strong> in this project. We don't teach it your document — we simply <em>hand it the relevant passages at question time</em>. That's the whole trick, and it's why RAG is fast and cheap compared to training a model.</p>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="concepts">
+      <h2><span class="num">05</span>Key concepts, simply</h2>
+      <p class="section-sub">Short, plain definitions for the words you'll be asked about.</p>
+      <div class="cards">
+        <div class="card"><div class="term">Embedding<span class="mono">text → numbers</span></div><p>A list of numbers representing the meaning of a piece of text. Similar meanings get similar numbers, so we can measure how related two texts are.</p></div>
+        <div class="card"><div class="term">Vector<span class="mono">the list itself</span></div><p>Just the name for that list of numbers. "Vector" and "embedding" are used almost interchangeably.</p></div>
+        <div class="card"><div class="term">Chunk<span class="mono">a slice of text</span></div><p>A small piece of the document (~1000 characters). We split documents into chunks so retrieval stays focused and fits the model.</p></div>
+        <div class="card"><div class="term">Vector database<span class="mono">Chroma</span></div><p>A special store that holds embeddings and can instantly find the ones most similar to a query. Ordinary databases can't do this well.</p></div>
+        <div class="card"><div class="term">Semantic search<span class="mono">meaning search</span></div><p>Searching by meaning, not exact keywords. "How much holiday?" can match a passage about "annual leave" even with no shared words.</p></div>
+        <div class="card"><div class="term">Top-k<span class="mono">k = 4</span></div><p>How many chunks we retrieve for each question. More gives more context but can add noise.</p></div>
+        <div class="card"><div class="term">Grounded prompt<span class="mono">the instruction</span></div><p>The wording we send the model telling it to answer only from the provided passages and to admit when the answer isn't there.</p></div>
+        <div class="card"><div class="term">Hallucination<span class="mono">made-up facts</span></div><p>When a model states something false with confidence. The main problem RAG is designed to reduce.</p></div>
+        <div class="card"><div class="term">LLM<span class="mono">Gemini</span></div><p>Large Language Model — the AI that understands and writes text. Yours is Google's Gemini, accessed through Vertex AI.</p></div>
+        <div class="card"><div class="term">Temperature<span class="mono">= 0</span></div><p>A setting for how "creative" the model is. You set it to 0 so answers are factual and repeatable, not imaginative.</p></div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section id="stack">
+      <h2><span class="num">06</span>The tools, and why each one</h2>
+      <p class="section-sub">Be ready to justify every choice — supervisors love asking "why this and not X?"</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tool</th><th>What it does</th><th>Why you chose it</th></tr></thead>
+          <tbody>
+            <tr><td><b>Python</b></td><td>The programming language everything is written in.</td><td>The standard language for AI/ML; huge library support.</td></tr>
+            <tr><td><b>LangChain</b></td><td>A framework that connects the RAG pieces (loaders, splitter, vector store, model).</td><td>Saves writing "glue" code; a standard, well-known RAG toolkit.</td></tr>
+            <tr><td><b>PyPDF</b></td><td>Reads text out of PDF files.</td><td>Simple, reliable text extraction for the ingestion step.</td></tr>
+            <tr><td><b>Sentence-Transformers</b></td><td>Creates the embeddings (text → vectors), running on your own machine.</td><td>Free, offline, private, and reproducible — no API cost for embeddings.</td></tr>
+            <tr><td><b>Chroma</b></td><td>The vector database that stores and searches embeddings.</td><td>Lightweight, open-source, easy to run locally — ideal for a research project.</td></tr>
+            <tr><td><b>Gemini</b> (via Vertex AI)</td><td>The language model that writes the final answer.</td><td>A strong, current model; accessible through Google Cloud with your credits.</td></tr>
+            <tr><td><b>Streamlit</b></td><td>Builds the web interface (upload, ask, show answer & sources).</td><td>Turns Python into a web app in a few lines — perfect for a solo project.</td></tr>
+            <tr><td><b>Git / GitHub</b></td><td>Tracks code history and hosts it online.</td><td>Standard practice; shows your working process and backs up your work.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section id="cloud">
+      <h2><span class="num">07</span>Google Cloud's role</h2>
+      <p class="section-sub">Your supervisor will specifically ask this — here's the clear answer.</p>
+      <p><strong>Google Cloud is where the "brain" of your system lives.</strong> The language model that writes answers, Gemini, is too large to run on a laptop. Google runs it in their data centres, and you access it over the internet through a service called <strong>Vertex AI</strong>.</p>
+
+      <h3>What is Vertex AI?</h3>
+      <p>Vertex AI is Google Cloud's platform for using AI models. In your project it does one specific job: <strong>it's the doorway to Gemini.</strong> Your code sends the question + retrieved passages to Vertex AI, and Vertex AI returns Gemini's answer.</p>
+
+      <h3>How does it help your project?</h3>
+      <div class="cards">
+        <div class="card"><div class="term" style="font-size:16px">Access to a powerful model</div><p>You get a state-of-the-art model (Gemini 2.5 Flash) without owning expensive hardware.</p></div>
+        <div class="card"><div class="term" style="font-size:16px">Managed & reliable</div><p>Google handles the servers, scaling, and uptime. You just make a request.</p></div>
+        <div class="card"><div class="term" style="font-size:16px">Secure login</div><p>Instead of a password in your code, it authenticates through your Google identity (<code>gcloud</code> login) — safer.</p></div>
+        <div class="card"><div class="term" style="font-size:16px">University credits</div><p>Your usage is billed to an education credit, so running experiments costs you nothing.</p></div>
+      </div>
+
+      <div class="key">
+        <span class="tag">Say this</span>
+        <p>"Google Cloud, through Vertex AI, is how my application reaches the Gemini language model. The model runs in Google's data centres; my code sends the question and the retrieved passages to Vertex AI and gets back the generated answer. It gives me a powerful model without local hardware, handles security through my Google login, and my usage runs on a university education credit."</p>
+      </div>
+      <p><em>Handy distinction if asked:</em> there are two ways to reach Gemini — a simple "API key" (Google AI Studio) and the fuller "Vertex AI" on Google Cloud. You use <strong>Vertex AI</strong> because it works with your university's Google Cloud credits and is the more professional, production-grade route.</p>
+    </section>
+
+    <!-- 8 -->
+    <section id="research">
+      <h2><span class="num">08</span>What you tested, and what you found</h2>
+      <p class="section-sub">The research 30% — your measurable contribution.</p>
+      <p>You didn't just build the app; you <strong>measured</strong> it. You created a test set of 18 questions about a sample document (14 with known answers, 4 deliberately unanswerable to test honesty), and used the model itself as an automatic grader. Three experiments:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Research question</th><th>What you varied</th><th class="num-cell">Result</th></tr></thead>
+          <tbody>
+            <tr><td><b>RQ1 — Does RAG beat a plain LLM?</b></td><td>Retrieval ON vs OFF</td><td class="num-cell"><b>RAG 94%</b> vs plain <b>44%</b></td></tr>
+            <tr><td><b>RQ2 — Does chunk size matter?</b></td><td>500 / 1000 / 1500 chars</td><td class="num-cell">94% / 94% / 100%</td></tr>
+            <tr><td><b>RQ3 — Does retrieving more help?</b></td><td>top-k = 2 / 4 / 8</td><td class="num-cell">97% / 94% / 97%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Headline finding (RQ1):</strong> RAG more than doubled accuracy (44% → 94%). The plain model failed on document-specific facts and invented answers for the unanswerable questions; RAG grounded its answers and correctly said "I couldn't find this."</p>
+      <p><strong>The honest finding (RQ2 & RQ3):</strong> chunk size and top-k made almost no difference here — all within one question of each other. The right interpretation is not "1500 is best"; it's that on a <em>small, clean</em> document with a strong model, retrieval finds the answer under almost any setting. These knobs matter more on large, noisy collections.</p>
+      <div class="key">
+        <span class="tag">This earns marks</span>
+        <p>Saying "the differences in RQ2/RQ3 are within noise, so I won't over-claim" shows scientific honesty. Also mention the <strong>limitation of the automatic grader</strong>: it's an AI grading an AI, so you'd validate it by hand-checking a sample. Naming your own limitations is a strength, not a weakness.</p>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section id="significance">
+      <h2><span class="num">09</span>Why doing this matters</h2>
+      <p class="section-sub">The "what's the use of this?" question.</p>
+      <p><strong>Practically:</strong> grounded, source-cited question-answering over private documents is one of the most in-demand AI capabilities in industry right now — think searching legal contracts, medical guidelines, company policies, or research papers. Your project is a working reference implementation of exactly that pattern.</p>
+      <p><strong>Academically:</strong> hallucination and trust are active, important research problems for AI. Your work adds concrete evidence on <em>how much</em> RAG helps and <em>how</em> its settings affect quality — with a reusable test set others can build on.</p>
+      <p><strong>For your degree:</strong> it draws together software architecture, machine learning, natural language processing, information retrieval, and cloud computing — the core competencies of your M.Sc.</p>
+    </section>
+
+    <!-- 10 -->
+    <section id="questions">
+      <h2><span class="num">10</span>Likely viva questions</h2>
+      <p class="section-sub">Click each to reveal a strong, simple answer. Practice saying them in your own words.</p>
+
+      <details class="qa"><summary><span class="q">Q</span><span>In one sentence, what is your project?</span></summary><div class="a"><p>"A web app where you upload a PDF and ask questions, and it answers using only that document and cites the exact source — built using Retrieval-Augmented Generation, which I also evaluated against a plain language model."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>Why not just use ChatGPT / Gemini directly?</span></summary><div class="a"><p>"A plain model doesn't know my private document, and it can hallucinate with no way to check it. RAG retrieves the real passages first, so the answer is grounded in my document and comes with a citation I can verify. My experiment showed this raised accuracy from 44% to 94%."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>What is an embedding, in simple terms?</span></summary><div class="a"><p>"It's a way of turning text into a list of numbers that captures its meaning. Texts with similar meaning get similar numbers, so the computer can measure how related a question and a passage are — even if they use different words."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>Why do you split documents into chunks?</span></summary><div class="a"><p>"Two reasons: a model can only read a limited amount of text at once, and searching works better on small focused passages than on a whole document. I use overlap between chunks so a sentence isn't cut in half at a boundary."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>What is a vector database and why not a normal one?</span></summary><div class="a"><p>"A vector database (I used Chroma) stores embeddings and can instantly find the ones most similar in meaning to a query. A normal database matches exact values or keywords; it can't measure meaning-similarity, which is what semantic search needs."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>How does your system avoid hallucination?</span></summary><div class="a"><p>"Three ways: I retrieve real passages and instruct the model to answer only from them; I set temperature to 0 so it stays factual; and the prompt tells it to reply 'I couldn't find this' when the answer isn't in the context. In testing it correctly refused all the unanswerable questions."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>What is the role of Google Cloud in your project?</span></summary><div class="a"><p>"Google Cloud, via Vertex AI, is how I access the Gemini language model — it runs in Google's data centres, not on my laptop. My code sends the question and retrieved passages to Vertex AI and gets back the answer. It gives me a powerful model without local hardware, secure login through my Google identity, and it runs on my university education credit."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>Why Vertex AI rather than a simple API key?</span></summary><div class="a"><p>"Both reach Gemini. Vertex AI is the Google Cloud route that works with my university's cloud credits and is the more production-grade, professional option, with authentication tied to my Google identity instead of a key pasted in the code."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>Did you train or fine-tune the model?</span></summary><div class="a"><p>"No — and that's the elegance of RAG. I never change the model. I just give it the relevant passages at question time. That makes the system fast to build, cheap to run, and easy to update: to add knowledge I just add documents, not retrain anything."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>How did you evaluate it, and what did you find?</span></summary><div class="a"><p>"I built a test set of 18 questions with known answers, including unanswerable ones, and used an automatic LLM grader. RAG scored 94% versus 44% for the plain model. Chunk size and top-k had little effect on my small clean document — a result I report honestly rather than over-claiming."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>What are the limitations of your work?</span></summary><div class="a"><p>"My test set is small and based on one synthetic document, so results demonstrate the effect rather than prove a general number. My grader is an AI judging an AI, which I'd validate with manual checks. And chunking/top-k effects would show more clearly on larger, noisier document collections."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>What is semantic search?</span></summary><div class="a"><p>"Search by meaning rather than exact keywords. Because both the question and the passages are embeddings, I can find passages that mean the same thing even when they share no words — 'how much holiday' matches 'annual leave'."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>How would you improve or extend it?</span></summary><div class="a"><p>"A larger and harder test set; validating the automatic grader by hand; supporting more file types; deploying it online; and trying a 're-ranking' step that re-orders retrieved passages for even better relevance."</p></div></details>
+
+      <details class="qa"><summary><span class="q">Q</span><span>What does 'top-k = 4' mean?</span></summary><div class="a"><p>"For each question I retrieve the 4 most relevant chunks and give those to the model. k is just how many passages I fetch — I tested 2, 4, and 8 to see if more context helps."</p></div></details>
+    </section>
+
+    <!-- 11 -->
+    <section id="cheat">
+      <div class="cheat">
+        <p class="eyebrow">Memorize these</p>
+        <h2>One-page cheat sheet</h2>
+        <ul>
+          <li><b>RAG</b> = Retrieve relevant passages, then Generate an answer from them.</li>
+          <li><b>Why:</b> stops hallucination, uses my private docs, gives verifiable citations.</li>
+          <li><b>Embedding</b> = text turned into numbers that capture meaning.</li>
+          <li><b>Chunk</b> = a small slice of the document; <b>Chroma</b> = the vector database that searches them.</li>
+          <li><b>Semantic search</b> = finding passages by meaning, not keywords.</li>
+          <li><b>Grounded prompt</b> = "answer only from this context, cite it, say if you don't know."</li>
+          <li><b>Google Cloud / Vertex AI</b> = the doorway to the Gemini model running in Google's data centres.</li>
+          <li><b>The model is never trained</b> — I just hand it the right passages at question time.</li>
+          <li><b>Result:</b> RAG 94% vs plain LLM 44% accuracy on my test set.</li>
+          <li><b>Honesty:</b> small test set + AI grader are limitations I acknowledge.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Study guide for the M.Sc. research project “Building and Evaluating a RAG System for Accurate Document Question-Answering.” Read it through once out loud the night before — explaining it in your own words is the best preparation.
+    </footer>
+  </main>
+</div>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('themeBtn');
+    function current() {
+      var s = document.documentElement.getAttribute('data-theme');
+      if (s) return s;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    });
+  })();
+</script>
