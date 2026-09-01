@@ -32,13 +32,13 @@ with st.sidebar:
     chunk_overlap = st.slider("Chunk overlap (characters)", 0, 400, 150, 50)
     top_k = st.slider("Passages to retrieve (top-k)", 1, 10, 4, 1)
     st.divider()
-    st.markdown(
-        "**How it works**\n\n"
-        "1. Your PDF is split into overlapping chunks.\n"
-        "2. Each chunk becomes an embedding vector.\n"
-        "3. Your question retrieves the closest chunks.\n"
-        "4. Gemini answers using only those chunks."
-    )
+    # st.markdown(
+    #     "**How it works**\n\n"
+    #     "1. Your PDF is split into overlapping chunks.\n"
+    #     "2. Each chunk becomes an embedding vector.\n"
+    #     "3. Your question retrieves the closest chunks.\n"
+    #     "4. Gemini answers using only those chunks."
+    # )
 
 config = RAGConfig(chunk_size=chunk_size, chunk_overlap=chunk_overlap, top_k=top_k)
 

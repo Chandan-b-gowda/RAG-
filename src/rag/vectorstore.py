@@ -61,6 +61,10 @@ def build_vectorstore(
         embedding=embeddings,
         collection_name=config.collection_name,
         persist_directory=str(CHROMA_DIR) if persist else None,
+        # Use cosine similarity to match our normalized embeddings. This makes the
+        # relevance scores meaningful (roughly 0..1) instead of Chroma's default
+        # L2 distance, which produced out-of-range scores and a warning.
+        collection_metadata={"hnsw:space": "cosine"},
     )
     return store
 
@@ -72,6 +76,7 @@ def load_vectorstore(config: RAGConfig = DEFAULT_CONFIG) -> Chroma:
         collection_name=config.collection_name,
         embedding_function=embeddings,
         persist_directory=str(CHROMA_DIR),
+        collection_metadata={"hnsw:space": "cosine"},
     )
 
 
