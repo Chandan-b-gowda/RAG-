@@ -1,21 +1,4 @@
-"""
-The RESEARCH engine of the project (Phase 5 / the ~30% research contribution).
 
-This script runs controlled experiments and produces the numbers and charts that
-answer your research questions:
-
-  RQ1: Does RAG improve accuracy vs a plain LLM?          -> experiment_rag_vs_plain
-  RQ2: How does chunk size/overlap affect quality?        -> experiment_chunking
-  RQ3: How does top-k affect quality?                     -> experiment_topk
-  RQ5: What are the latency/cost trade-offs?              -> recorded in every run
-
-Accuracy is measured against a curated test set (data/eval/testset.json) of
-questions with known correct answers. We use an automatic "LLM-as-judge" plus a
-simple keyword check, and we always keep the raw answers so failures can be
-inspected qualitatively too.
-
-Run:  python -m experiments.evaluate
-"""
 
 from __future__ import annotations
 

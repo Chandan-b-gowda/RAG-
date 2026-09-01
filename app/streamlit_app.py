@@ -1,13 +1,4 @@
-"""
-The full-stack RAG web application (Streamlit).
 
-Users can: upload one or more PDFs, ask a question in natural language, and get a
-grounded answer together with the exact source passages used. This is the main
-deliverable of Phase 4 in your exposé.
-
-Run it from the project root with:
-    streamlit run app/streamlit_app.py
-"""
 
 from __future__ import annotations
 
