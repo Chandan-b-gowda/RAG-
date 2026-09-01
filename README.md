@@ -47,7 +47,7 @@ Research project/
 
 ```bash
 # 1. Activate the virtual environment (Windows PowerShell)
-.venv\Scripts\Activate.ps1
+    .venv\Scripts\Activate.ps1
 
 # 2. Install dependencies (already done during setup)
 pip install -r requirements.txt
@@ -63,6 +63,10 @@ copy .env.example .env
 ```bash
 # A. Verify the retrieval pipeline (no API key needed)
 python scripts/smoke_test.py
+
+#for  authentication from the google run this and login with yor pass
+gcloud auth application-default login
+
 
 # B. Launch the web app
 streamlit run app/streamlit_app.py
