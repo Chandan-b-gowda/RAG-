@@ -40,3 +40,7 @@ Thumbs.db
 experiments/results/*.png
 experiments/results/*.json
 experiments/results/*.txt
+.codex/
+.vexp/
+experiments/results/*.json
+experiments/results/*.txt
