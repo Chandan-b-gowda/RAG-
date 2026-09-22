@@ -1,12 +1,3 @@
-"""
-Step 1 of the RAG pipeline: INGESTION.
-
-Turn raw PDF files into clean, overlapping text chunks that we can later embed and
-search. This is the "read and chunk documents" deliverable (Phase 2 in your exposé).
-
-Flow:  PDF file  ->  raw text per page  ->  overlapping chunks (LangChain Documents)
-"""
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -19,15 +10,7 @@ from .config import DEFAULT_CONFIG, RAGConfig
 
 
 def load_pdf(pdf_path: str | Path) -> list[Document]:
-    """
-    Load a single PDF into a list of LangChain `Document` objects (one per page).
-
-    Each Document has:
-      - .page_content : the text of that page
-      - .metadata     : {'source': <file path>, 'page': <page number>, ...}
-
-    That metadata is what later lets us cite the exact source of an answer.
-    """
+    """Load a PDF and return a list of page-level Documents."""
     pdf_path = Path(pdf_path)
     if not pdf_path.exists():
         raise FileNotFoundError(f"PDF not found: {pdf_path}")
@@ -35,13 +18,11 @@ def load_pdf(pdf_path: str | Path) -> list[Document]:
     loader = PyPDFLoader(str(pdf_path))
     pages = loader.load()
 
-    # Normalise metadata so citations read cleanly:
-    #  - 'source' becomes just the file name (not the full path)
-    #  - 'page' becomes 1-indexed (PyPDF counts from 0, but humans count from 1)
+
     for p in pages:
-        p.metadata["source"] = pdf_path.name
-        if isinstance(p.metadata.get("page"), int):
-            p.metadata["page"] = p.metadata["page"] + 1
+        p.metadata["source"] = pdf_path.name 
+        if isinstance(p.metadata.get("page"), int): 
+            p.metadata["page"] = p.metadata["page"] + 1 # PyPDF counts from 0, but humans count from 1
     return pages
 
 
@@ -49,14 +30,7 @@ def chunk_documents(
     docs: list[Document],
     config: RAGConfig = DEFAULT_CONFIG,
 ) -> list[Document]:
-    """
-    Split page-level Documents into smaller, overlapping chunks.
-
-    We use RecursiveCharacterTextSplitter: it tries to split on paragraph breaks
-    first, then sentences, then words — so chunks stay semantically coherent
-    instead of being cut mid-word. chunk_size and chunk_overlap come from config,
-    which is exactly what we vary in the chunking experiment (Research Question 2).
-    """
+    """Split a list of Documents into smaller chunks for retrieval."""
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=config.chunk_size,
         chunk_overlap=config.chunk_overlap,

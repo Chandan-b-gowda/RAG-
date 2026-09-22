@@ -1,5 +1,3 @@
-
-
 from __future__ import annotations
 
 import json
@@ -85,12 +83,7 @@ def _verdict_to_number(v: str) -> float:
 
 # ---------- Experiments ----------
 def run_over_testset(pipeline: RAGPipeline, testset: list[dict], judge_llm, mode: str):
-    """
-    Run every test question through the pipeline in `mode` ('rag' or 'plain').
-
-    Uses the on-disk cache: a question already answered under the same config+mode
-    is not re-sent to the API. This makes repeat runs free and near-instant.
-    """
+    
     cache = _load_cache()
     sig = f"{mode}|{pipeline.config.summary()}"  # identifies this exact setup
     rows = []

@@ -54,7 +54,7 @@ def main() -> None:
         print(f"\n   Result {i} (relevance {score:.3f}):")
         print("   " + doc.page_content.strip().replace("\n", " ")[:200])
 
-    print("\n[OK] Retrieval pipeline works. Next step: add your Gemini key to answer questions.")
+    print("\n[OK] Retrieval pipeline works. hurrayyyyy ")
 
 
 if __name__ == "__main__":

@@ -83,8 +83,6 @@ python -m experiments.evaluate
 4. How reliably can the system attribute answers to the correct source?
 5. What are the latency/cost trade-offs of adding retrieval?
 
-See [ROADMAP.md](ROADMAP.md) for the week-by-week plan.
-
 ## Tech stack
 
 Python · LangChain · Google Gemini · Sentence-Transformers · Chroma · Streamlit ·

@@ -1,10 +1,8 @@
 {
   "file_hashes": {
-    ".codex/vexp-hint.sh": "2e70adb35715530bbf582c26e3d8377fc5cfd44fb5e96696fdee76a82b03fdbe",
-    "AGENTS.md": "ae288d08ab286aaba6c749d772d6e8f4c5592a9b5eb94b905e254e47f55793d6",
+    ".codex/vexp-hint.sh": "fb509ceda97574d910ab0ac361521ac6be17d63f35e4374754910ca1e73e0ded",
     "README.md": "9c2aa244117a3bd741c23c50b6b2814e7ed8a0323a636b2bd397392dedd1c6a6",
-    "ROADMAP.md": "72df7022649c04b579e54d66cd31687cf9180af6a4f55bc76d12efb1ac70c823",
-    "app/streamlit_app.py": "8e87d76edbcc5057ba42b29112e44c6f473c125ec27fb7ca255ebf54a7e1fc53",
+    "app/streamlit_app.py": "dbaf78a327d9cf1b40d1c54db7f18c95472f496b9917241aa0b3b96c53a30f31",
     "experiments/evaluate.py": "1258072b4eafc3a760690c9f747a6aa80c0284d9594cdef7558434f183da3350",
     "scripts/smoke_test.py": "b12e0a707e2e652871c598c55d1972d5b3108c2f0999221409f381f0abdac346",
     "src/rag/__init__.py": "f6d31a75e28fddd3ea5dd6869794b598ee863d2250fb6ec8da16d71a69faec9b",
@@ -15,13 +13,23 @@
     "src/rag/pipeline.py": "f7a3168308bf8f79caaadb617903bedb43f6d24c0147eb81059e434c021d6352",
     "src/rag/vectorstore.py": "f8e31076188f8932bf344ae6480728db57a312dba58a2a71d8c79ba33177d98f"
   },
-  "indexed_at_commit": "d1dc0db1d728ed6e05c6cf859be7a9816e7b9410",
-  "indexed_at_timestamp": "2026-09-07T10:50:40.039038700+00:00",
+  "indexed_at_commit": "7a935f6f1f80c645ccd1588262d1f048161a9d96",
+  "indexed_at_timestamp": "2026-09-19T18:08:57.629236200+00:00",
+  "languages": {
+    "markdown": {
+      "calls": 0,
+      "nodes": 8
+    },
+    "python": {
+      "calls": 46,
+      "nodes": 39
+    }
+  },
   "schema_version": 3,
   "stats": {
-    "total_edges": 91,
-    "total_files": 14,
-    "total_nodes": 57
+    "total_edges": 83,
+    "total_files": 12,
+    "total_nodes": 47
   },
-  "vexp_version": "3.1.1"
+  "vexp_version": "3.1.2"
 }

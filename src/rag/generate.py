@@ -1,12 +1,3 @@
-"""
-Step 3 of the RAG pipeline: GROUNDED GENERATION.
-
-We take the chunks retrieved by semantic search, insert them into a carefully
-worded prompt, and ask the LLM (Gemini) to answer *using only those chunks*. This
-"grounding" is what reduces hallucination and lets us cite sources — the heart of
-Research Question 1 and Objective 3.3 in your exposé.
-"""
-
 from __future__ import annotations
 
 from langchain_core.documents import Document
@@ -52,14 +43,7 @@ def format_context(chunks: list[Document]) -> str:
 
 
 def get_llm(config: RAGConfig = DEFAULT_CONFIG):
-    """
-    Create the Gemini chat model for the configured provider.
-
-    - "vertex":     Vertex AI. Authenticates through your gcloud login (Application
-                    Default Credentials); no API key. Billed to your GCP project,
-                    so it draws on your Google Cloud credits.
-    - "gemini_api": AI Studio Developer API. Requires GOOGLE_API_KEY in your .env.
-    """
+    
     if config.llm_provider == "vertex":
         from langchain_google_vertexai import ChatVertexAI
 
@@ -84,10 +68,7 @@ def generate_answer(
     chunks: list[Document],
     config: RAGConfig = DEFAULT_CONFIG,
 ) -> str:
-    """
-    Given a question and the retrieved chunks, produce a grounded, cited answer.
-    This is the RAG path: the model sees real passages from the documents.
-    """
+   
     llm = get_llm(config)
     prompt = GROUNDED_PROMPT.format(
         context=format_context(chunks),
@@ -100,10 +81,5 @@ def generate_plain_answer(
     question: str,
     config: RAGConfig = DEFAULT_CONFIG,
 ) -> str:
-    """
-    The BASELINE path (no retrieval): ask the LLM the question directly, with no
-    document context. We compare this against the RAG answer in the experiments to
-    measure how much retrieval actually helps (Research Question 1).
-    """
     llm = get_llm(config)
     return invoke_with_backoff(llm, question)

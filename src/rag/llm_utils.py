@@ -1,16 +1,3 @@
-"""
-Robustness helpers for LLM calls.
-
-Two things make experiments reliable and cheap:
-
-1. Backoff on rate limits: the Gemini API returns HTTP 429 when you exceed your
-   per-minute or per-day quota. Instead of crashing a long experiment, we wait the
-   amount the API asks for and retry. This means a temporary limit just slows the
-   run instead of losing all progress.
-
-2. (Caching lives in the experiment layer — see experiments/evaluate.py.)
-"""
-
 from __future__ import annotations
 
 import re
@@ -33,12 +20,7 @@ def _suggested_delay(error: Exception, default: float) -> float:
 
 
 def invoke_with_backoff(llm, prompt, max_retries: int = 5, base_delay: float = 5.0):
-    """
-    Call llm.invoke(prompt), retrying politely on rate-limit errors.
-
-    Returns the model's text content (a string). Raises the last error if every
-    retry is exhausted (e.g. a hard daily cap that won't clear soon).
-    """
+    
     attempt = 0
     while True:
         try:

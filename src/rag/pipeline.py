@@ -1,11 +1,3 @@
-"""
-The RAG pipeline, assembled.
-
-This ties ingestion + retrieval + generation into one object with a simple `.ask()`
-method. The Streamlit app and the experiment scripts both use this class, so there
-is a single, consistent definition of "how the system answers a question".
-"""
-
 from __future__ import annotations
 
 import time
@@ -56,7 +48,7 @@ class RAGPipeline:
         self.store = store
         self.config = config
 
-    # ---- Constructors ----
+    
     @classmethod
     def from_existing(cls, config: RAGConfig = DEFAULT_CONFIG) -> "RAGPipeline":
         """Load a previously persisted vector store from disk."""
@@ -64,13 +56,7 @@ class RAGPipeline:
 
     @classmethod
     def from_folder(cls, folder=None, config: RAGConfig = DEFAULT_CONFIG) -> "RAGPipeline":
-        """
-        Ingest all PDFs in a folder and build a fresh IN-MEMORY vector store.
-
-        In-memory (persist=False) keeps each build fully isolated — essential for
-        experiments that rebuild the store many times with different settings — and
-        avoids Windows file-locking when the store is rebuilt within one process.
-        """
+        """Ingest all PDFs in a folder and build a fresh in-memory vector store."""
         chunks = ingest_folder(folder, config)
         return cls(build_vectorstore(chunks, config, persist=False), config)
 

@@ -1,5 +1,3 @@
-
-
 from __future__ import annotations
 
 import sys
@@ -69,14 +67,21 @@ if uploaded and st.button("📥 Build knowledge base", type="primary"):
         f"{st.session_state.num_chunks} chunks. Ask away below!"
     )
 
+# ---- Or try the built-in sample document ----
+st.caption("No PDF handy? Try the built-in sample.")
+if st.button("Load sample document (Northwind handbook)"):
+    with st.spinner("Indexing the sample document..."):
+        st.session_state.pipeline = RAGPipeline.from_folder(config=config)
+    st.success("Sample document indexed. Ask a question below!")
+
 # ---- Ask a question ----
 if "pipeline" in st.session_state:
     st.divider()
     question = st.text_input("Ask a question about your documents:")
 
     col1, col2 = st.columns([1, 1])
-    ask_rag = col1.button("🔍 Answer with RAG", type="primary")
-    ask_plain = col2.button("🧠 Answer without retrieval (baseline)")
+    ask_rag = col1.button("Answer with RAG", type="primary")
+    ask_plain = col2.button("Answer without retrieval (baseline)")
 
     if question and (ask_rag or ask_plain):
         pipeline = st.session_state.pipeline
@@ -96,4 +101,4 @@ if "pipeline" in st.session_state:
                 ):
                     st.write(c["text"])
 else:
-    st.info("👆 Upload PDF(s) and click **Build knowledge base** to get started.")
+    st.info("Upload PDF(s) and click **Build knowledge base** to get started.")
