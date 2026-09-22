@@ -10,11 +10,7 @@ venv/
 
 # Secrets — NEVER commit API keys
 .env
-docs
-AGENTS.md
-ROADMAP.md
-report
-defence_guide.html
+
 # Vector store (regenerated from documents)
 chroma_db/
 
@@ -22,11 +18,25 @@ chroma_db/
 data/documents/*
 !data/documents/.gitkeep
 
-# OS / editor
+# Generated docs & planning notes (not part of the codebase)
+docs/
+report/
+AGENTS.md
+ROADMAP.md
+defence_guide.html
+
+# Editor / tooling artifacts
+.codex/
+.vexp/
+.vscode/
+.idea/
+
+# OS files
 .DS_Store
 Thumbs.db
 .ipynb_checkpoints/
-.vscode/
 
-# Experiment outputs (optional: comment out to keep results in git)
+# Experiment outputs (charts, cache, and raw logs)
 experiments/results/*.png
+experiments/results/*.json
+experiments/results/*.txt
